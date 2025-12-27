@@ -200,7 +200,7 @@ export default function PortfolioPage() {
     },
     {
       title: "Rano AI",
-      href: "",
+      href: "https://rano.animall.uz/",
       description:
         "Huquqiy hujjatlar asosida o‘qitilgan sun’iy intellekt tizimi. Foydalanuvchilarga maslahat va izohlar berish uchun mo‘ljallangan. (U2S jamoasi bilan hamkorlikda)",
       image: "/projects/ranoAI.png",
@@ -221,7 +221,7 @@ export default function PortfolioPage() {
     },
     {
       title: "Animall.uz",
-      href: "",
+      href: "https://animall.uz",
       description:
         "Hayvonlar savdosi va e’lonlari uchun mo‘ljallangan onlayn platforma. (Mustaqil loyiha)",
       image: "/projects/animall.png",

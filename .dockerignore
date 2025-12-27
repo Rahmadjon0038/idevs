@@ -1,0 +1,14 @@
+node_modules
+.next
+.git
+.gitignore
+*.log
+.env
+.env.*
+pnpm-lock.yaml
+yarn.lock
+out
+build
+coverage
+tmp
+*.tsbuildinfo
