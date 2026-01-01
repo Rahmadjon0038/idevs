@@ -5,8 +5,11 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://murodillayev.uz"),
@@ -79,7 +82,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="uz" suppressHydrationWarning>
+    <html
+      lang="uz"
+      suppressHydrationWarning
+      className={`${geist.variable} ${geistMono.variable}`}
+    >
       <body className={`font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
@@ -88,6 +95,25 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Person",
+                name: "Hojiakbar Murodillayev",
+                url: "https://murodillayev.uz",
+                jobTitle: "MERN Stack & Mobile Developer",
+                sameAs: [
+                  "https://github.com/uzhojiakbar",
+                  "https://www.linkedin.com/in/hojiakbar-murodillayev/",
+                  "https://t.me/murodillayev_hojiakbar",
+                  "https://t.me/texnologik_sayohatchi",
+                  "https://idevs.uz",
+                ],
+              }),
+            }}
+          />
           <Analytics />
         </ThemeProvider>
       </body>
