@@ -1,6 +1,8 @@
 import { MetadataRoute } from "next";
+import { getSiteUrl } from "@/lib/site";
 
-export default function robots(): MetadataRoute.Robots {
+export default async function robots(): Promise<MetadataRoute.Robots> {
+  const siteUrl = await getSiteUrl();
   return {
     rules: [
       {
@@ -8,6 +10,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://murodillayev.uz/sitemap.xml",
+    sitemap: new URL("/sitemap.xml", siteUrl).toString(),
   };
 }

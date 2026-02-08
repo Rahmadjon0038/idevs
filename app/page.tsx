@@ -4,22 +4,6 @@ import Image from "next/image";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Hojiakbar Murodillayev",
-  jobTitle: "Middle MERN Stack Developer",
-  url: "https://hojiakbar.dev",
-  sameAs: [
-    "https://github.com/hojiakbar",
-    "https://linkedin.com/in/hojiakbar",
-    "https://t.me/hojiakbar",
-    "https://instagram.com/hojiakbar",
-  ],
-  description:
-    "Middle MERN Stack developer building modern web va mobil ilovalar JavaScript ekotizimi asosida.",
-};
-
 export default function PortfolioPage() {
   const stacks = [
     {
@@ -251,10 +235,6 @@ export default function PortfolioPage() {
 
   return (
     <main className="min-h-screen max-w-screen-xl mx-auto px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
       <div className="fixed top-6 right-6 z-50 md:top-12 md:right-12 lg:top-20 lg:right-24">
         <ThemeToggle />
       </div>
@@ -402,7 +382,7 @@ export default function PortfolioPage() {
 
               <div className="mt-12">
                 <h3 className="text-sm font-bold uppercase tracking-widest text-foreground mb-6">
-                  Texnologiyalar stacki (to‘g‘ri)
+                  Texnologiyalar stacki
                 </h3>
                 <div className="grid gap-5 sm:grid-cols-2">
                   {stacks.map((stack) => (
