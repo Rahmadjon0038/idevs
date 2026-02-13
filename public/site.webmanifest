@@ -2,6 +2,8 @@
   "name": "Hojiakbar Murodillayev",
   "short_name": "Hojiakbar",
   "description": "Hojiakbar Murodillayev — 4+ yillik tajribaga ega MERN Stack va Mobile Developer.",
+  "start_url": "/uz",
+  "lang": "uz",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
