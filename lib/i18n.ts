@@ -145,30 +145,50 @@ const contentByLocale: Record<Locale, Content> = {
       ],
       keywords: [
         "Hojiakbar",
-        "Murodillayev",
+        "Xojiakbar",
+        "Xojakar",
         "Hojiakbar Murodillayev",
+        "Xojiakbar Murodillayev",
+        "Hojiakbar Murodullayev",
+        "Xojiakbar Murodullayev",
+        "Hojiakbar Murodillaev",
+        "Xojiakbar Murodillaev",
+
         "Hojiakbar Murodillayev portfolio",
+        "Xojiakbar Murodillayev portfolio",
+        "Hojiakbar dasturchi",
+        "Xojiakbar dasturchi",
+
         "MERN stack dasturchi",
         "full stack dasturchi",
         "veb dasturchi",
         "mobil dasturchi",
         "freelance dasturchi",
+
         "O'zbekiston dasturchi",
         "Toshkent dasturchi",
+
         "frontend dasturchi",
         "backend dasturchi",
+
         "React dasturchi",
         "Next.js dasturchi",
         "React Native dasturchi",
         "Node.js dasturchi",
+
         "TypeScript dasturchi",
         "JavaScript dasturchi",
+
         "REST API",
         "API integratsiya",
+
         "MongoDB",
         "PostgreSQL",
+
         "UI/UX",
+
         "web va mobil ilovalar",
+
         "Docker",
         "Nginx",
         "PM2",
@@ -306,8 +326,7 @@ const contentByLocale: Record<Locale, Content> = {
         href: "https://darmonservis.uz",
         description:
           "Xususiy klinika uchun landing page. Xizmatlar, yo'nalishlar va kompaniya haqida to'liq ma'lumot beruvchi rasmiy veb-sahifa. (IT Loyihalar tomonidan ishlab chiqilgan)",
-        details:
-          "Fokus: xizmatlar katalogi, tezkor aloqa va mobil moslashuv.",
+        details: "Fokus: xizmatlar katalogi, tezkor aloqa va mobil moslashuv.",
         image: "/projects/darmonservis.png",
       },
       {
@@ -324,17 +343,15 @@ const contentByLocale: Record<Locale, Content> = {
         href: "https://hacknow.uz/",
         description:
           "Kiberxavfsizlik va dasturlash bo'yicha amaliy bilim berishga yo'naltirilgan ta'lim platformasi. (Mustaqil loyiha)",
-        details:
-          "Fokus: kurslar, blog va ro'yxatdan o'tish oqimlari.",
+        details: "Fokus: kurslar, blog va ro'yxatdan o'tish oqimlari.",
         image: "/projects/hacknow.png",
       },
       {
         title: "EVOS Tasting Platform",
         href: "https://tasting.evos.uz",
         description:
-          "Supplier uchun mo'ljallangan ichki platforma. Mahsulotlar va jarayonlarni boshqarish uchun maxsus web yechim. (Abexlab jamoasi bilan hamkorlikda)",
-        details:
-          "Fokus: role-based kirish va boshqaruv paneli.",
+          "Supplier uchun mo'ljallangan ichki platforma. Mahsulotlar va jarayonlarni boshqarish uchun maxsus web yechim. (IT Loyihalar tomonidan ishlab chiqilgan)",
+        details: "Fokus: role-based kirish va boshqaruv paneli.",
         image: "/projects/ETS.png",
       },
       {
@@ -342,8 +359,7 @@ const contentByLocale: Record<Locale, Content> = {
         href: "https://rano.animall.uz/",
         description:
           "Huquqiy hujjatlar asosida o'qitilgan sun'iy intellekt tizimi. Foydalanuvchilarga maslahat va izohlar berish uchun mo'ljallangan. (U2S jamoasi bilan hamkorlikda)",
-        details:
-          "Fokus: hujjat qidiruvi va AI asosidagi izohlar.",
+        details: "Fokus: hujjat qidiruvi va AI asosidagi izohlar.",
         image: "/projects/ranoAI.png",
       },
       {
@@ -351,8 +367,7 @@ const contentByLocale: Record<Locale, Content> = {
         href: "#",
         description:
           "Tijoriy web loyihasi. Mijoz va loyiha tafsilotlari maxfiylik shartnomasi (NDA) asosida oshkor etilmaydi.",
-        details:
-          "Fokus: maxfiy biznes jarayonlari va admin panel.",
+        details: "Fokus: maxfiy biznes jarayonlari va admin panel.",
         image: "/projects/NDA.webp",
       },
       {
@@ -360,8 +375,7 @@ const contentByLocale: Record<Locale, Content> = {
         href: "#",
         description:
           "Ichki boshqaruv tizimi. Loyiha tafsilotlari va biznes logikasi NDA sababli ochiqlanmaydi.",
-        details:
-          "Fokus: ichki workflow va ma'lumotlar boshqaruvi.",
+        details: "Fokus: ichki workflow va ma'lumotlar boshqaruvi.",
         image: "/projects/NDA.webp",
       },
       {
@@ -369,8 +383,7 @@ const contentByLocale: Record<Locale, Content> = {
         href: "https://animall.uz",
         description:
           "Hayvonlar savdosi va e'lonlari uchun mo'ljallangan onlayn platforma. (Mustaqil loyiha)",
-        details:
-          "Fokus: e'lonlar, filtrlash va xavfsiz aloqa.",
+        details: "Fokus: e'lonlar, filtrlash va xavfsiz aloqa.",
         image: "/projects/animall.png",
       },
       {
@@ -378,17 +391,15 @@ const contentByLocale: Record<Locale, Content> = {
         href: "https://qutqaruvchi.uz",
         description:
           "Favqulodda vaziyatlarda tezkor yordam chaqirish uchun mo'ljallangan veb-platforma. (Mustaqil loyiha)",
-        details:
-          "Fokus: tezkor chaqiruv, lokatsiya va xabarnoma.",
+        details: "Fokus: tezkor chaqiruv, lokatsiya va xabarnoma.",
         image: "/projects/qutqaruvchi.png",
       },
       {
         title: "ComicCon Tashkent",
-        href: "#",
+        href: "https://comiccon.uz",
         description:
           "ComicCon tadbiri uchun maxsus tayyorlangan rasmiy promo veb-sahifa. (Abexlab jamoasi bilan hamkorlikda)",
-        details:
-          "Fokus: event promo, jadval va ro'yxatdan o'tish.",
+        details: "Fokus: event promo, jadval va ro'yxatdan o'tish.",
         image: "/projects/comiccon.png",
       },
       {
@@ -396,8 +407,7 @@ const contentByLocale: Record<Locale, Content> = {
         href: "https://comica.tcats.uz",
         description:
           "Komikslarni onlayn o'qish va ko'rish uchun mo'ljallangan web platforma. (Abexlab jamoasi bilan hamkorlikda)",
-        details:
-          "Fokus: media ko'rish, katalog va foydalanuvchi tajribasi.",
+        details: "Fokus: media ko'rish, katalog va foydalanuvchi tajribasi.",
         image: "/projects/tcats.png",
       },
     ],
@@ -429,28 +439,52 @@ const contentByLocale: Record<Locale, Content> = {
         "DevOps",
       ],
       keywords: [
+        "Hojiakbar",
+        "Xojiakbar",
+        "Xojakar",
+
         "Hojiakbar Murodillayev",
+        "Xojiakbar Murodillayev",
+        "Hojiakbar Murodullayev",
+        "Xojiakbar Murodullayev",
+        "Hojiakbar Murodillaev",
+        "Xojiakbar Murodillaev",
+
+        "Hojiakbar разработчик",
+        "Xojiakbar разработчик",
+
+        "Hojiakbar Murodillayev портфолио",
+
         "MERN разработчик",
         "Full Stack разработчик",
         "Веб разработчик",
         "Мобильный разработчик",
         "Фриланс разработчик",
+
         "Узбекистан разработчик",
         "Ташкент разработчик",
+
         "Frontend разработчик",
         "Backend разработчик",
+
         "React разработчик",
         "Next.js разработчик",
         "React Native разработчик",
         "Node.js разработчик",
+
         "TypeScript разработчик",
         "JavaScript разработчик",
+
         "REST API",
         "API интеграция",
+
         "MongoDB",
         "PostgreSQL",
+
         "UI/UX",
+
         "веб и мобильные приложения",
+
         "Docker",
         "Nginx",
         "PM2",
@@ -611,7 +645,7 @@ const contentByLocale: Record<Locale, Content> = {
         title: "EVOS Tasting Platform",
         href: "https://tasting.evos.uz",
         description:
-          "Внутренняя платформа для supplier. Специальное веб-решение для управления продуктами и процессами. (В сотрудничестве с Abexlab)",
+          "Внутренняя платформа для supplier. Специальное веб-решение для управления продуктами и процессами. (Разработано IT Loyihalar)",
         details: "Фокус: role-based доступ и панель управления.",
         image: "/projects/ETS.png",
       },
@@ -626,8 +660,7 @@ const contentByLocale: Record<Locale, Content> = {
       {
         title: "WM (NDA)",
         href: "#",
-        description:
-          "Коммерческий веб-проект. Детали скрыты из-за NDA.",
+        description: "Коммерческий веб-проект. Детали скрыты из-за NDA.",
         details: "Фокус: конфиденциальные бизнес-процессы и админ-панель.",
         image: "/projects/NDA.webp",
       },
@@ -700,28 +733,53 @@ const contentByLocale: Record<Locale, Content> = {
         "DevOps",
       ],
       keywords: [
+        "Hojiakbar",
+        "Xojiakbar",
+        "Xojakar",
+
         "Hojiakbar Murodillayev",
+        "Xojiakbar Murodillayev",
+        "Hojiakbar Murodullayev",
+        "Xojiakbar Murodullayev",
+        "Hojiakbar Murodillaev",
+        "Xojiakbar Murodillaev",
+
+        "Hojiakbar developer",
+        "Xojiakbar developer",
+
+        "Hojiakbar Murodillayev portfolio",
+        "Xojiakbar Murodillayev portfolio",
+
         "MERN Stack Developer",
         "Full Stack Developer",
         "Web Developer",
         "Mobile Developer",
         "Freelance Developer",
+
         "Uzbekistan Developer",
         "Tashkent Developer",
+
         "Frontend Developer",
         "Backend Developer",
+
         "React Developer",
         "Next.js Developer",
         "React Native Developer",
         "Node.js Developer",
+
         "TypeScript Developer",
         "JavaScript Developer",
+
         "REST API",
         "API Integration",
+
         "MongoDB",
         "PostgreSQL",
+
         "UI/UX",
+
         "Web and mobile applications",
+
         "Docker",
         "Nginx",
         "PM2",
@@ -882,7 +940,7 @@ const contentByLocale: Record<Locale, Content> = {
         title: "EVOS Tasting Platform",
         href: "https://tasting.evos.uz",
         description:
-          "Internal platform for suppliers. A custom web solution for product and process management. (In collaboration with Abexlab)",
+          "Internal platform for suppliers. A custom web solution for product and process management. (Built by IT Loyihalar)",
         details: "Focus: role-based access and management dashboard.",
         image: "/projects/ETS.png",
       },

@@ -101,10 +101,16 @@ export default async function PortfolioPage({
               </Button>
             </div>
 
-            <nav className="nav hidden lg:block" aria-label="In-page jump links">
+            <nav
+              className="nav hidden lg:block"
+              aria-label="In-page jump links"
+            >
               <ul className="mt-16 w-max">
                 <li>
-                  <a className="group flex items-center py-3 active" href="#about">
+                  <a
+                    className="group flex items-center py-3 active"
+                    href="#about"
+                  >
                     <span className="nav-indicator mr-4 h-px w-8 bg-muted-foreground transition-all group-hover:w-16 group-hover:bg-foreground group-focus-visible:w-16 group-focus-visible:bg-foreground motion-reduce:transition-none"></span>
                     <span className="nav-text text-xs font-bold uppercase tracking-widest text-muted-foreground group-hover:text-foreground group-focus-visible:text-foreground">
                       {nav.about}
@@ -112,7 +118,10 @@ export default async function PortfolioPage({
                   </a>
                 </li>
                 <li>
-                  <a className="group flex items-center py-3" href="#experience">
+                  <a
+                    className="group flex items-center py-3"
+                    href="#experience"
+                  >
                     <span className="nav-indicator mr-4 h-px w-8 bg-muted-foreground transition-all group-hover:w-16 group-hover:bg-foreground group-focus-visible:w-16 group-focus-visible:bg-foreground motion-reduce:transition-none"></span>
                     <span className="nav-text text-xs font-bold uppercase tracking-widest text-muted-foreground group-hover:text-foreground group-focus-visible:text-foreground">
                       {nav.experience}
