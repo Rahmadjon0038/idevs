@@ -1,7 +1,7 @@
 {
   "name": "iDevs — Dasturchilar Jamoasi",
   "short_name": "iDevs",
-  "description": "iDevs — MERN stack, React Native va Flutter asosida web va mobil ilovalar yaratuvchi dasturchilar jamoasi.",
+  "description": "iDevs — frontend, backend va mobil (Flutter) yo'nalishlarini qamrab oluvchi full-stack dasturchilar jamoasi.",
   "start_url": "/uz",
   "lang": "uz",
   "icons": [
