@@ -64,7 +64,6 @@ export type Content = {
   hero: {
     name: string;
     role: string;
-    badge: string;
     title: string;
     titleHighlight: string;
     description: string;
@@ -229,7 +228,6 @@ const contentByLocale: Record<Locale, Content> = {
     hero: {
       name: "iDevs",
       role: "Web va Mobil Ilovalar Ishlab Chiqish Jamoasi",
-      badge: "iDevs — Dasturchilar Jamoasi",
       title: "G'oyangizni ishlaydigan",
       titleHighlight: "mahsulotga aylantiramiz",
       description:
@@ -482,7 +480,6 @@ const contentByLocale: Record<Locale, Content> = {
     hero: {
       name: "iDevs",
       role: "Команда разработки веб и мобильных приложений",
-      badge: "iDevs — Команда разработчиков",
       title: "Превращаем вашу идею в",
       titleHighlight: "готовый продукт",
       description:
@@ -734,7 +731,6 @@ const contentByLocale: Record<Locale, Content> = {
     hero: {
       name: "iDevs",
       role: "Web & Mobile App Development Team",
-      badge: "iDevs — Development Team",
       title: "We turn your idea into a",
       titleHighlight: "real, working product",
       description:

@@ -67,12 +67,7 @@ export default async function PortfolioPage({
           </div>
 
           <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-secondary/40 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-              {hero.badge}
-            </span>
-
-            <h1 className="mt-6 text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            <h1 className="text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
               {hero.title}{" "}
               <span className="bg-gradient-to-r from-indigo-500 via-violet-500 to-fuchsia-500 bg-clip-text text-transparent">
                 {hero.titleHighlight}
