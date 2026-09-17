@@ -34,7 +34,7 @@ export function GET(request: Request) {
             color: "rgba(248,250,252,0.7)",
           }}
         >
-          Portfolio
+          iDevs
         </div>
         <div
           style={{

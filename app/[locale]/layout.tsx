@@ -35,7 +35,7 @@ export async function generateMetadata({
     metadataBase: siteUrl,
     title: {
       default: content.meta.title,
-      template: "%s | Hojiakbar Murodillayev",
+      template: "%s | iDevs",
     },
     description: content.meta.description,
     keywords: content.meta.keywords,
@@ -74,13 +74,9 @@ export async function generateMetadata({
     },
     manifest: "/site.webmanifest",
     icons: {
-      icon: [
-        { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-        { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-        { url: "/icon.svg", type: "image/svg+xml" },
-      ],
-      shortcut: "/favicon-32x32.png",
-      apple: "/apple-touch-icon.png",
+      icon: [{ url: "/me.jpg", type: "image/jpeg" }],
+      shortcut: "/me.jpg",
+      apple: "/me.jpg",
     },
     robots: {
       index: true,
@@ -116,7 +112,7 @@ export default async function LocaleLayout({
   const siteOrigin = new URL("/", siteUrl).toString();
   const pagePath = `/${locale}`;
   const pageUrl = new URL(pagePath, siteUrl).toString();
-  const personId = new URL("/#person", siteUrl).toString();
+  const organizationId = new URL("/#organization", siteUrl).toString();
   const websiteId = new URL("/#website", siteUrl).toString();
   const webpageId = new URL(`${pagePath}#webpage`, siteUrl).toString();
 
@@ -124,19 +120,17 @@ export default async function LocaleLayout({
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Person",
-        "@id": personId,
+        "@type": "Organization",
+        "@id": organizationId,
         name: content.hero.name,
         url: siteOrigin,
-        jobTitle: content.meta.jobTitle,
         description: content.meta.description,
-        image: new URL("/profile.jpg", siteUrl).toString(),
+        logo: new URL("/android-chrome-512x512.png", siteUrl).toString(),
         sameAs: [
           `https://${siteDomains.primary}`,
           `https://${siteDomains.secondary}`,
-          "https://github.com/uzhojiakbar",
-          "https://www.linkedin.com/in/hojiakbar-murodillayev/",
-          "https://t.me/texnologik_sayohatchi",
+          "https://github.com/Rahmadjon0038",
+          "https://t.me/Rahmadjonn",
         ],
         knowsAbout: content.meta.knowsAbout,
       },
@@ -145,7 +139,7 @@ export default async function LocaleLayout({
         "@id": websiteId,
         url: siteOrigin,
         name: content.meta.siteName,
-        publisher: { "@id": personId },
+        publisher: { "@id": organizationId },
         inLanguage: locale,
       },
       {
@@ -154,7 +148,7 @@ export default async function LocaleLayout({
         url: pageUrl,
         name: content.meta.title,
         isPartOf: { "@id": websiteId },
-        about: { "@id": personId },
+        about: { "@id": organizationId },
         inLanguage: locale,
         description: content.meta.description,
       },

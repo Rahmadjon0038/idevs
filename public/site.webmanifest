@@ -1,7 +1,7 @@
 {
-  "name": "Hojiakbar Murodillayev",
-  "short_name": "Hojiakbar",
-  "description": "Hojiakbar Murodillayev — 4+ yillik tajribaga ega MERN Stack va Mobile Developer.",
+  "name": "iDevs — Dasturchilar Jamoasi",
+  "short_name": "iDevs",
+  "description": "iDevs — MERN stack, React Native va Flutter asosida web va mobil ilovalar yaratuvchi dasturchilar jamoasi.",
   "start_url": "/uz",
   "lang": "uz",
   "icons": [

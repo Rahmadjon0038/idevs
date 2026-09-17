@@ -36,12 +36,9 @@ export type Stack = {
   tools: StackTool[];
 };
 
-export type Experience = {
-  period: string;
-  role: string;
-  company: string;
-  href: string;
-  summary: string;
+export type ProjectPlatform = {
+  type: "web" | "android" | "ios";
+  href?: string;
 };
 
 export type Project = {
@@ -50,6 +47,7 @@ export type Project = {
   description: string;
   details: string;
   image: string;
+  platforms: ProjectPlatform[];
 };
 
 export type Content = {
@@ -61,41 +59,79 @@ export type Content = {
     twitterDescription: string;
     keywords: string[];
     ogImageAlt: string;
-    jobTitle: string;
     knowsAbout: string[];
   };
   hero: {
     name: string;
     role: string;
-    intro: string;
-    ctaCv: string;
+    badge: string;
+    title: string;
+    titleHighlight: string;
+    description: string;
+    ctaPrimary: string;
+    ctaSecondary: string;
+    stats: { value: string; label: string }[];
   };
   nav: {
     about: string;
-    experience: string;
     projects: string;
+    contact: string;
   };
   sections: {
     about: string;
-    experience: string;
     projects: string;
+    contact: string;
     stacks: string;
   };
   labels: {
     stack: string;
+    platformWeb: string;
+    platformAndroid: string;
+    platformIos: string;
   };
   about: {
     paragraphs: string[];
   };
   stacks: Stack[];
-  experiences: Experience[];
   projects: Project[];
+  contact: {
+    title: string;
+    description: string;
+    availability: string;
+    form: {
+      nameLabel: string;
+      namePlaceholder: string;
+      phoneLabel: string;
+      phonePlaceholder: string;
+      companyLabel: string;
+      companyPlaceholder: string;
+      projectLabel: string;
+      projectPlaceholder: string;
+      submit: string;
+      submitting: string;
+      successTitle: string;
+      successDescription: string;
+      errorTitle: string;
+      errorDescription: string;
+      validation: {
+        nameRequired: string;
+        nameMin: string;
+        phoneRequired: string;
+        phoneInvalid: string;
+        projectRequired: string;
+      };
+    };
+  };
+  footer: {
+    rights: string;
+  };
 };
 
 const icon = {
   javascript: "https://cdn.simpleicons.org/javascript/F7DF1E",
   typescript: "https://cdn.simpleicons.org/typescript/3178C6",
   react: "https://cdn.simpleicons.org/react/61DAFB",
+  flutter: "https://cdn.simpleicons.org/flutter/02569B",
   nextjs: "https://cdn.simpleicons.org/nextdotjs/7E7E7E",
   tailwind: "https://cdn.simpleicons.org/tailwindcss/06B6D4",
   vite: "https://cdn.simpleicons.org/vite/646CFF",
@@ -119,22 +155,22 @@ const icon = {
 const contentByLocale: Record<Locale, Content> = {
   uz: {
     meta: {
-      title: "Hojiakbar Murodillayev | MERN Stack va Mobile Developer",
+      title: "iDevs | Web va Mobil Ilovalar Ishlab Chiqish Jamoasi",
       description:
-        "Hojiakbar Murodillayev — 4+ yillik tajribaga ega MERN Stack va Mobile Developer. Web va mobil ilovalarni JavaScript ekotizimi asosida ishlab chiqaman.",
-      siteName: "Hojiakbar Murodillayev — MERN & Mobile Developer",
+        "iDevs — full-stack dasturchilar jamoasi: frontend, backend, mobil (Flutter) va VPS serverga joylashgacha bo'lgan barcha bosqichlarni o'zimiz qilamiz. G'oyangizni production-ready mahsulotga aylantiramiz.",
+      siteName: "iDevs — Dasturlash Jamoasi",
       ogDescription:
-        "Web va mobil ilovalarni MERN stack asosida ishlab chiqaman. Real loyihalar, freelance tajriba va production-ready yechimlar.",
+        "Frontend, backend, mobil (Flutter/React Native) va VPS serverga joylashtirish — barchasini o'zimiz qilamiz. Real loyihalar, ishonchli arxitektura va production-ready yechimlar.",
       twitterDescription:
-        "MERN Stack va React Native asosida web va mobil ilovalar ishlab chiqaman.",
-      ogImageAlt: "Hojiakbar Murodillayev portfolio",
-      jobTitle: "MERN Stack va Mobile Developer",
+        "Frontend, backend, mobil (Flutter) va serverga joylashtirishgacha — to'liq siklli full-stack dasturchilar jamoasi.",
+      ogImageAlt: "iDevs jamoasi portfoliosi",
       knowsAbout: [
-        "MERN stack",
+        "Full Stack dasturlash",
         "Web dasturlash",
         "Mobil ilovalar",
         "React",
         "React Native",
+        "Flutter",
         "Next.js",
         "Node.js",
         "TypeScript",
@@ -144,22 +180,13 @@ const contentByLocale: Record<Locale, Content> = {
         "DevOps",
       ],
       keywords: [
-        "Hojiakbar",
-        "Xojiakbar",
-        "Xojakar",
-        "Hojiakbar Murodillayev",
-        "Xojiakbar Murodillayev",
-        "Hojiakbar Murodullayev",
-        "Xojiakbar Murodullayev",
-        "Hojiakbar Murodillaev",
-        "Xojiakbar Murodillaev",
+        "iDevs",
+        "iDevs jamoasi",
+        "iDevs dasturchilar jamoasi",
+        "iDevs portfolio",
+        "dasturchilar jamoasi",
+        "IT jamoa O'zbekiston",
 
-        "Hojiakbar Murodillayev portfolio",
-        "Xojiakbar Murodillayev portfolio",
-        "Hojiakbar dasturchi",
-        "Xojiakbar dasturchi",
-
-        "MERN stack dasturchi",
         "full stack dasturchi",
         "veb dasturchi",
         "mobil dasturchi",
@@ -174,6 +201,7 @@ const contentByLocale: Record<Locale, Content> = {
         "React dasturchi",
         "Next.js dasturchi",
         "React Native dasturchi",
+        "Flutter dasturchi",
         "Node.js dasturchi",
 
         "TypeScript dasturchi",
@@ -188,6 +216,9 @@ const contentByLocale: Record<Locale, Content> = {
         "UI/UX",
 
         "web va mobil ilovalar",
+        "sayt buyurtma qilish",
+        "mobil ilova buyurtma qilish",
+        "CRM tizim yaratish",
 
         "Docker",
         "Nginx",
@@ -196,36 +227,50 @@ const contentByLocale: Record<Locale, Content> = {
       ],
     },
     hero: {
-      name: "Hojiakbar Murodillayev",
-      role: "MERN Stack va Mobile Developer",
-      intro:
-        "Zamonaviy web va mobil ilovalarni JavaScript ekotizimi asosida ishlab chiqaman. Frontend, backend va mobil tajribalarni yagona tizim sifatida loyihalayman.",
-      ctaCv: "CV Yuklab Olish",
+      name: "iDevs",
+      role: "Web va Mobil Ilovalar Ishlab Chiqish Jamoasi",
+      badge: "iDevs — Dasturchilar Jamoasi",
+      title: "G'oyangizni ishlaydigan",
+      titleHighlight: "mahsulotga aylantiramiz",
+      description:
+        "iDevs — frontend, backend va mobil (Flutter) yo'nalishlarini qamrab oluvchi full-stack dasturchilar jamoasi. Loyihani ishlab chiqishdan tortib VPS serverga joylashgacha — butun yo'lni birga bosib o'tamiz.",
+      ctaPrimary: "Loyihani boshlash",
+      ctaSecondary: "Loyihalarni ko'rish",
+      stats: [
+        { value: "4+", label: "Yakunlangan loyiha" },
+        { value: "5+", label: "Yillik tajriba" },
+        { value: "4", label: "Platforma" },
+      ],
     },
     nav: {
-      about: "Men haqimda",
-      experience: "Tajriba",
+      about: "Biz haqimizda",
       projects: "Loyihalar",
+      contact: "Bog'lanish",
     },
     sections: {
-      about: "Men haqimda",
-      experience: "Tajriba",
+      about: "Biz haqimizda",
       projects: "Loyihalar",
+      contact: "Bog'lanish",
       stacks: "Texnologiyalar stacki",
     },
     labels: {
-      stack: "Stack",
+      stack: "Yo'nalish",
+      platformWeb: "Webda ko'rish",
+      platformAndroid: "Android'da ko'rish",
+      platformIos: "iOS'da ko'rish",
     },
     about: {
       paragraphs: [
-        "Men real loyihalarda ishlagan MERN stack dasturchiman. React va React Native yordamida web va mobil interfeyslar, Node.js orqali esa barqaror backend yechimlar yarataman.",
-        "Oxirgi yillarda korporativ va startap loyihalarda ishladim: tezkor MVP, masshtablanuvchi arxitektura va biznes ehtiyojlariga mos texnik yechimlarni taqdim etaman. Maqsadim — tez, ishonchli va foydalanuvchi uchun qulay ilovalar ishlab chiqish.",
+        "iDevs — zamonaviy texnologiyalar asosida web va mobil ilovalar yaratuvchi natijaga yo'naltirilgan dasturchilar jamoasi. Next.js, React, React Native, Flutter, Node.js, PostgreSQL va boshqa ko'plab texnologiyalar asosida ishlaymiz.",
+        "Har birimiz frontend, backend yoki mobil (Flutter) yo'nalishida alohida holda ham kuchli mutaxassismiz. Birgalikda esa loyihani g'oyadan tortib frontend, backend, mobil ilova va VPS serverga joylashgacha — to'liq siklda yakunlaymiz.",
+        "Ta'lim platformalari, CRM tizimlari va biznesni raqamlashtirishga oid real loyihalarni ishga tushirgan tajribamiz bor. Har bir loyihada toza kod, masshtablanuvchi arxitektura va foydalanuvchi uchun qulay interfeysga alohida e'tibor qaratamiz.",
+        "Maqsadimiz — mijozning g'oyasini tez, ishonchli va biznes ehtiyojlariga mos dasturiy mahsulotga aylantirish.",
       ],
     },
     stacks: [
       {
         title: "Frontend (Web)",
-        summary: "Zamonaviy UI/UX, ishlash va qo'llanish qulayligi.",
+        summary: "Zamonaviy, tez va qulay foydalanuvchi interfeyslari.",
         tools: [
           { name: "JavaScript (ES6+)", icon: icon.javascript },
           { name: "TypeScript", icon: icon.typescript },
@@ -237,7 +282,7 @@ const contentByLocale: Record<Locale, Content> = {
       },
       {
         title: "Backend",
-        summary: "Barqaror API'lar va xavfsiz autentifikatsiya.",
+        summary: "Barqaror API'lar va xavfsiz autentifikatsiya tizimlari.",
         tools: [
           { name: "Node.js", icon: icon.node },
           { name: "Express.js / NestJS", icon: icon.nest },
@@ -248,9 +293,10 @@ const contentByLocale: Record<Locale, Content> = {
       },
       {
         title: "Mobile",
-        summary: "Web bilan uyg'un ishlovchi mobil tajribalar.",
+        summary: "iOS va Android uchun yagona kod bazasidan tajriba.",
         tools: [
           { name: "React Native", icon: icon.react },
+          { name: "Flutter", icon: icon.flutter },
           { name: "Expo", icon: icon.expo },
           { name: "Android & iOS build", icon: icon.android },
           { name: "API integratsiya", icon: icon.swift },
@@ -259,7 +305,7 @@ const contentByLocale: Record<Locale, Content> = {
       },
       {
         title: "Tools & DevOps",
-        summary: "Jo'natish, kuzatuv va avtomatlashtirish.",
+        summary: "Joylash, kuzatuv va avtomatlashtirilgan ish jarayonlari.",
         tools: [
           { name: "Docker", icon: icon.docker },
           { name: "Nginx", icon: icon.nginx },
@@ -270,166 +316,115 @@ const contentByLocale: Record<Locale, Content> = {
         ],
       },
     ],
-    experiences: [
-      {
-        period: "2025 — HOZIRDA",
-        role: "Full Stack Developer",
-        company: "IT Loyihalar",
-        href: "https://it-loyihalar.uz/",
-        summary:
-          "Web va mobil ilovalar uchun yagona MERN arxitektura asosida ishlash. React va React Native yordamida foydalanuvchi interfeyslari, Node.js orqali backend xizmatlarini ishlab chiqish. Loyihalarni production muhitga joylash va barqaror ishlashini ta'minlash. Biznes jarayonlarini raqamlashtirish va texnik qarorlarni optimallashtirishga e'tibor qarataman.",
-      },
-      {
-        period: "2021 — HOZIRDA",
-        role: "MERN Stack (Freelance)",
-        company: "Independent / Freelance",
-        href: "https://t.me/murodillayev_hojiakbar",
-        summary:
-          "So'nggi 4 yil davomida mustaqil dasturchi sifatida web va mobil ilovalar ishlab chiqish. Turli mijozlar uchun loyihalarni noldan yaratish, mavjud tizimlarni rivojlantirish va texnik yechimlarni real biznes ehtiyojlariga moslash. Mijozlar bilan to'g'ridan-to'g'ri kommunikatsiya va talablarni aniq texnik topshiriqqa aylantirish tajribasi mavjud.",
-      },
-      {
-        period: "2025 — HOZIRDA",
-        role: "Frontend Developer (Part-time)",
-        company: "Abexlab",
-        href: "https://www.linkedin.com/company/abexlab/",
-        summary:
-          "Zamonaviy web interfeyslar ishlab chiqish va mavjud sahifalarni optimizatsiya qilish. Foydalanuvchi tajribasini yaxshilash va dizaynni funksional yechimlarga aylantirish. UI komponentlarni qayta ishlatish va tezkor yetkazib berishga e'tibor qarataman.",
-      },
-      {
-        period: "2024 — 2025",
-        role: "Frontend Developer",
-        company: "Etamin IT Solutions",
-        href: "https://etamin.digital/",
-        summary:
-          "Korxona darajasidagi web platformalar ustida ishlash. CRUD va real-time funksiyalarni joriy etish, tizim barqarorligi va performance'ni yaxshilash. Dizayn va backend jamoalari bilan muvofiqlikda ishlash tajribasi.",
-      },
-      {
-        period: "2023 — 2025",
-        role: "Frontend Mentor",
-        company: "Webbrain IT Academy",
-        href: "https://t.me/webbrain_academy",
-        summary:
-          "Frontend yo'nalishida talabalarga mentorlik qilish. Real loyihalar orqali amaliy bilim berish, kod sifati va to'g'ri yondashuvni shakllantirish. O'quvchilarni portfolio va ishga tayyorlashga ko'maklashish.",
-      },
-      {
-        period: "2022 — 2023",
-        role: "Junior Frontend Developer",
-        company: "Mahsulot.com",
-        href: "https://mahsulot.com/",
-        summary:
-          "E-commerce yo'nalishidagi web loyihalarda ishtirok etish. Foydalanuvchi interfeyslarini ishlab chiqish va jamoa bilan hamkorlikda funksional yechimlar yaratish. UX yaxshilash va konversiyani oshirishga xizmat qiluvchi o'zgarishlar kiritish.",
-      },
-    ],
     projects: [
-      {
-        title: "Darmon Servis",
-        href: "https://darmonservis.uz",
-        description:
-          "Xususiy klinika uchun landing page. Xizmatlar, yo'nalishlar va kompaniya haqida to'liq ma'lumot beruvchi rasmiy veb-sahifa. (IT Loyihalar tomonidan ishlab chiqilgan)",
-        details: "Fokus: xizmatlar katalogi, tezkor aloqa va mobil moslashuv.",
-        image: "/projects/darmonservis.png",
-      },
-      {
-        title: "Makro",
-        href: "https://makromarket.uz/",
-        description:
-          "Makro marketi uchun rasmiy veb-sahifa. Brend va xizmatlar haqida umumiy ma'lumot beruvchi web loyiha. (Abexlab jamoasi bilan hamkorlikda)",
-        details:
-          "Fokus: brend taqdimoti, kontent boshqaruvi va ishlash tezligi.",
-        image: "/projects/makro.png",
-      },
-      {
-        title: "Hacknow.uz",
-        href: "https://hacknow.uz/",
-        description:
-          "Kiberxavfsizlik va dasturlash bo'yicha amaliy bilim berishga yo'naltirilgan ta'lim platformasi. (Mustaqil loyiha)",
-        details: "Fokus: kurslar, blog va ro'yxatdan o'tish oqimlari.",
-        image: "/projects/hacknow.png",
-      },
-      {
-        title: "EVOS Tasting Platform",
-        href: "https://tasting.evos.uz",
-        description:
-          "Supplier uchun mo'ljallangan ichki platforma. Mahsulotlar va jarayonlarni boshqarish uchun maxsus web yechim. (IT Loyihalar tomonidan ishlab chiqilgan)",
-        details: "Fokus: role-based kirish va boshqaruv paneli.",
-        image: "/projects/ETS.png",
-      },
-      {
-        title: "Rano AI",
-        href: "https://rano.animall.uz/",
-        description:
-          "Huquqiy hujjatlar asosida o'qitilgan sun'iy intellekt tizimi. Foydalanuvchilarga maslahat va izohlar berish uchun mo'ljallangan. (U2S jamoasi bilan hamkorlikda)",
-        details: "Fokus: hujjat qidiruvi va AI asosidagi izohlar.",
-        image: "/projects/ranoAI.png",
-      },
-      {
-        title: "WM (NDA)",
-        href: "#",
-        description:
-          "Tijoriy web loyihasi. Mijoz va loyiha tafsilotlari maxfiylik shartnomasi (NDA) asosida oshkor etilmaydi.",
-        details: "Fokus: maxfiy biznes jarayonlari va admin panel.",
-        image: "/projects/NDA.webp",
-      },
-      {
-        title: "COST (NDA)",
-        href: "#",
-        description:
-          "Ichki boshqaruv tizimi. Loyiha tafsilotlari va biznes logikasi NDA sababli ochiqlanmaydi.",
-        details: "Fokus: ichki workflow va ma'lumotlar boshqaruvi.",
-        image: "/projects/NDA.webp",
-      },
       {
         title: "Animall.uz",
         href: "https://animall.uz",
         description:
-          "Hayvonlar savdosi va e'lonlari uchun mo'ljallangan onlayn platforma. (Mustaqil loyiha)",
+          "Hayvonlar savdosi va e'lonlari uchun mo'ljallangan sayt va mobil ilovadan iborat platforma.",
         details: "Fokus: e'lonlar, filtrlash va xavfsiz aloqa.",
         image: "/projects/animall.png",
+        platforms: [
+          { type: "web", href: "https://animall.uz" },
+          { type: "android" },
+          { type: "ios" },
+        ],
       },
       {
-        title: "Qutqaruvchi.uz",
-        href: "https://qutqaruvchi.uz",
+        title: "Oilago.uz",
+        href: "https://oilago.uz/",
         description:
-          "Favqulodda vaziyatlarda tezkor yordam chaqirish uchun mo'ljallangan veb-platforma. (Mustaqil loyiha)",
-        details: "Fokus: tezkor chaqiruv, lokatsiya va xabarnoma.",
-        image: "/projects/qutqaruvchi.png",
+          "Sayt va mobil ilovadan iborat loyiha. Next.js, React Native, Expo, Node.js, Express va PostgreSQL asosida qurilgan.",
+        details: "Fokus: chat, maxfiylik va qulay mobil tajriba.",
+        image: "/projects/oilago.png",
+        platforms: [
+          { type: "web", href: "https://oilago.uz/" },
+          { type: "android" },
+          { type: "ios" },
+        ],
       },
       {
-        title: "ComicCon Tashkent",
-        href: "https://comiccon.uz",
+        title: "Topshirdi",
+        href: "https://topshirdi.uz/app",
         description:
-          "ComicCon tadbiri uchun maxsus tayyorlangan rasmiy promo veb-sahifa. (Abexlab jamoasi bilan hamkorlikda)",
-        details: "Fokus: event promo, jadval va ro'yxatdan o'tish.",
-        image: "/projects/comiccon.png",
+          "Haydovchilik guvohnomasi imtihoniga tayyorlanish uchun yaratilgan web platforma va mobil ilova. iOS va Android ilovalari mavjud.",
+        details:
+          "Fokus: darsliklar, testlar, biletlar, video darslar va natijalarni kuzatish.",
+        image: "/projects/topshirdi.png",
+        platforms: [
+          { type: "web", href: "https://topshirdi.uz/app" },
+          { type: "android" },
+          { type: "ios" },
+        ],
       },
       {
-        title: "T-Cats",
-        href: "https://comica.tcats.uz",
+        title: "CRM (NDA)",
+        href: "#",
         description:
-          "Komikslarni onlayn o'qish va ko'rish uchun mo'ljallangan web platforma. (Abexlab jamoasi bilan hamkorlikda)",
-        details: "Fokus: media ko'rish, katalog va foydalanuvchi tajribasi.",
-        image: "/projects/tcats.png",
+          "O'quv markaz uchun ichki CRM va boshqaruv tizimi. Talabalar uchun Android va iOS mobil ilovasi ham mavjud. Tafsilotlar NDA sababli ochiqlanmaydi.",
+        details:
+          "Fokus: ichki boshqaruv, o'quv jarayonlari va talabalar mobil ilovasi.",
+        image: "/projects/crm.png",
+        platforms: [
+          { type: "web" },
+          { type: "android" },
+          { type: "ios" },
+        ],
       },
     ],
+    contact: {
+      title: "Loyihangizni muhokama qilaylik",
+      description:
+        "Formani to'ldiring — tez orada siz bilan bog'lanamiz va loyihangiz bo'yicha bepul konsultatsiya beramiz.",
+      availability: "Yangi loyihalar uchun ochiqmiz",
+      form: {
+        nameLabel: "Ism familiya",
+        namePlaceholder: "Ism Familiya",
+        phoneLabel: "Telefon raqam",
+        phonePlaceholder: "+998 90 123 45 67",
+        companyLabel: "Kompaniya nomi (ixtiyoriy)",
+        companyPlaceholder: "Kompaniyangiz nomi",
+        projectLabel: "Loyiha nomi",
+        projectPlaceholder: "Loyihangiz nomi yoki qisqacha g'oyasi",
+        submit: "Yuborish",
+        submitting: "Yuborilmoqda...",
+        successTitle: "Rahmat!",
+        successDescription:
+          "Arizangiz qabul qilindi. Tez orada siz bilan bog'lanamiz.",
+        errorTitle: "Xatolik yuz berdi",
+        errorDescription:
+          "Iltimos, birozdan so'ng qayta urinib ko'ring yoki Telegram orqali yozing.",
+        validation: {
+          nameRequired: "Ism familiyangizni kiriting",
+          nameMin: "Kamida 2 ta belgi kiriting",
+          phoneRequired: "Telefon raqamingizni kiriting",
+          phoneInvalid: "Telefon raqami noto'g'ri formatda",
+          projectRequired: "Loyiha nomini kiriting",
+        },
+      },
+    },
+    footer: {
+      rights: "Barcha huquqlar himoyalangan.",
+    },
   },
   ru: {
     meta: {
-      title: "Hojiakbar Murodillayev | MERN Stack и Mobile Developer",
+      title: "iDevs | Команда разработки веб и мобильных приложений",
       description:
-        "Hojiakbar Murodillayev — MERN Stack и Mobile Developer с 4+ годами опыта. Разрабатываю веб и мобильные приложения в экосистеме JavaScript.",
-      siteName: "Hojiakbar Murodillayev — MERN & Mobile Developer",
+        "iDevs — full-stack команда разработчиков: frontend, backend, мобильная разработка (Flutter) и развёртывание на VPS-сервере — всё в одних руках. Превращаем вашу идею в готовый продукт.",
+      siteName: "iDevs — Команда разработки",
       ogDescription:
-        "Разрабатываю веб и мобильные приложения на MERN stack. Реальные проекты, фриланс и production-ready решения.",
+        "Frontend, backend, мобильная разработка (Flutter/React Native) и развёртывание на VPS — делаем всё сами. Реальные проекты, надёжная архитектура и production-ready решения.",
       twitterDescription:
-        "Разрабатываю веб и мобильные приложения на MERN Stack и React Native.",
-      ogImageAlt: "Портфолио Hojiakbar Murodillayev",
-      jobTitle: "MERN Stack и Mobile Developer",
+        "Full-stack команда: frontend, backend, мобильная разработка и деплой на сервер.",
+      ogImageAlt: "Портфолио команды iDevs",
       knowsAbout: [
-        "MERN stack",
+        "Full Stack разработка",
         "веб-разработка",
         "мобильные приложения",
         "React",
         "React Native",
+        "Flutter",
         "Next.js",
         "Node.js",
         "TypeScript",
@@ -439,23 +434,13 @@ const contentByLocale: Record<Locale, Content> = {
         "DevOps",
       ],
       keywords: [
-        "Hojiakbar",
-        "Xojiakbar",
-        "Xojakar",
+        "iDevs",
+        "команда iDevs",
+        "iDevs разработчики",
+        "iDevs портфолио",
+        "команда разработчиков",
+        "IT команда Узбекистан",
 
-        "Hojiakbar Murodillayev",
-        "Xojiakbar Murodillayev",
-        "Hojiakbar Murodullayev",
-        "Xojiakbar Murodullayev",
-        "Hojiakbar Murodillaev",
-        "Xojiakbar Murodillaev",
-
-        "Hojiakbar разработчик",
-        "Xojiakbar разработчик",
-
-        "Hojiakbar Murodillayev портфолио",
-
-        "MERN разработчик",
         "Full Stack разработчик",
         "Веб разработчик",
         "Мобильный разработчик",
@@ -484,6 +469,9 @@ const contentByLocale: Record<Locale, Content> = {
         "UI/UX",
 
         "веб и мобильные приложения",
+        "заказать сайт",
+        "заказать мобильное приложение",
+        "разработка CRM",
 
         "Docker",
         "Nginx",
@@ -492,36 +480,50 @@ const contentByLocale: Record<Locale, Content> = {
       ],
     },
     hero: {
-      name: "Hojiakbar Murodillayev",
-      role: "MERN Stack и Mobile Developer",
-      intro:
-        "Разрабатываю современные веб и мобильные приложения в экосистеме JavaScript. Проектирую фронтенд, бэкенд и мобильный опыт как единую систему.",
-      ctaCv: "Скачать CV",
+      name: "iDevs",
+      role: "Команда разработки веб и мобильных приложений",
+      badge: "iDevs — Команда разработчиков",
+      title: "Превращаем вашу идею в",
+      titleHighlight: "готовый продукт",
+      description:
+        "iDevs — full-stack команда, охватывающая frontend, backend и мобильную разработку (Flutter). Проходим весь путь — от идеи до развёртывания на VPS-сервере — вместе с вами.",
+      ctaPrimary: "Начать проект",
+      ctaSecondary: "Смотреть проекты",
+      stats: [
+        { value: "4+", label: "Завершённых проектов" },
+        { value: "5+", label: "Лет опыта" },
+        { value: "4", label: "Платформы" },
+      ],
     },
     nav: {
-      about: "Обо мне",
-      experience: "Опыт",
+      about: "О нас",
       projects: "Проекты",
+      contact: "Контакты",
     },
     sections: {
-      about: "Обо мне",
-      experience: "Опыт",
+      about: "О нас",
       projects: "Проекты",
+      contact: "Контакты",
       stacks: "Технологический стек",
     },
     labels: {
-      stack: "Стек",
+      stack: "Направление",
+      platformWeb: "Смотреть на Web",
+      platformAndroid: "Смотреть на Android",
+      platformIos: "Смотреть на iOS",
     },
     about: {
       paragraphs: [
-        "Я MERN-разработчик с опытом в реальных проектах. Создаю веб и мобильные интерфейсы на React и React Native, а также надежные backend-решения на Node.js.",
-        "Работал над корпоративными и стартап-проектами: быстрые MVP, масштабируемая архитектура и решения под бизнес-задачи. Моя цель — быстрые, надежные и удобные для пользователя приложения.",
+        "iDevs — ориентированная на результат команда разработчиков веб и мобильных приложений на современных технологиях. Работаем с Next.js, React, React Native, Flutter, Node.js, PostgreSQL и множеством других технологий.",
+        "Каждый из нас — сильный специалист в своём направлении: frontend, backend или мобильная разработка (Flutter). А вместе мы закрываем проект полностью — от идеи до frontend, backend, мобильного приложения и развёртывания на VPS-сервере.",
+        "У нас есть опыт запуска реальных проектов — образовательных платформ, CRM-систем и решений для автоматизации бизнеса. В каждом проекте уделяем особое внимание чистому коду, масштабируемой архитектуре и удобному интерфейсу.",
+        "Наша цель — быстро и надёжно превращать идею клиента в программный продукт, соответствующий бизнес-задачам.",
       ],
     },
     stacks: [
       {
         title: "Frontend (Web)",
-        summary: "Современный UI/UX, скорость и удобство использования.",
+        summary: "Современные, быстрые и удобные пользовательские интерфейсы.",
         tools: [
           { name: "JavaScript (ES6+)", icon: icon.javascript },
           { name: "TypeScript", icon: icon.typescript },
@@ -533,7 +535,7 @@ const contentByLocale: Record<Locale, Content> = {
       },
       {
         title: "Backend",
-        summary: "Надежные API и безопасная аутентификация.",
+        summary: "Надёжные API и безопасная аутентификация.",
         tools: [
           { name: "Node.js", icon: icon.node },
           { name: "Express.js / NestJS", icon: icon.nest },
@@ -544,9 +546,10 @@ const contentByLocale: Record<Locale, Content> = {
       },
       {
         title: "Mobile",
-        summary: "Мобильные приложения, интегрированные с вебом.",
+        summary: "Единая кодовая база для iOS и Android.",
         tools: [
           { name: "React Native", icon: icon.react },
+          { name: "Flutter", icon: icon.flutter },
           { name: "Expo", icon: icon.expo },
           { name: "Сборка Android и iOS", icon: icon.android },
           { name: "Интеграция API", icon: icon.swift },
@@ -555,7 +558,7 @@ const contentByLocale: Record<Locale, Content> = {
       },
       {
         title: "Tools & DevOps",
-        summary: "Деплой, мониторинг и автоматизация.",
+        summary: "Деплой, мониторинг и автоматизация процессов.",
         tools: [
           { name: "Docker", icon: icon.docker },
           { name: "Nginx", icon: icon.nginx },
@@ -566,164 +569,114 @@ const contentByLocale: Record<Locale, Content> = {
         ],
       },
     ],
-    experiences: [
-      {
-        period: "2025 — НАСТОЯЩЕЕ",
-        role: "Full Stack Developer",
-        company: "IT Loyihalar",
-        href: "https://it-loyihalar.uz/",
-        summary:
-          "Работа над веб и мобильными приложениями на единой MERN-архитектуре. Разработка пользовательских интерфейсов на React и React Native, серверной логики на Node.js. Развертывание проектов в production и обеспечение стабильной работы. Уделяю внимание цифровизации бизнес-процессов и оптимизации технических решений.",
-      },
-      {
-        period: "2021 — НАСТОЯЩЕЕ",
-        role: "MERN Stack (Freelance)",
-        company: "Independent / Freelance",
-        href: "https://t.me/murodillayev_hojiakbar",
-        summary:
-          "Более 4 лет разрабатываю веб и мобильные приложения как независимый разработчик. Создаю проекты с нуля, развиваю существующие системы и подбираю решения под реальные бизнес-задачи. Есть опыт прямой коммуникации с заказчиками и формализации требований.",
-      },
-      {
-        period: "2025 — НАСТОЯЩЕЕ",
-        role: "Frontend Developer (Part-time)",
-        company: "Abexlab",
-        href: "https://www.linkedin.com/company/abexlab/",
-        summary:
-          "Разработка современных веб-интерфейсов и оптимизация существующих страниц. Улучшение пользовательского опыта и превращение дизайна в функциональные решения. Фокус на переиспользуемые компоненты и быстрые поставки.",
-      },
-      {
-        period: "2024 — 2025",
-        role: "Frontend Developer",
-        company: "Etamin IT Solutions",
-        href: "https://etamin.digital/",
-        summary:
-          "Работа над корпоративными веб-платформами. Внедрение CRUD и real-time функций, повышение стабильности и производительности. Взаимодействие с дизайн- и backend-командами.",
-      },
-      {
-        period: "2023 — 2025",
-        role: "Frontend Mentor",
-        company: "Webbrain IT Academy",
-        href: "https://t.me/webbrain_academy",
-        summary:
-          "Менторство студентов по frontend. Практика на реальных проектах, формирование качества кода и правильного подхода. Помощь в подготовке портфолио и трудоустройству.",
-      },
-      {
-        period: "2022 — 2023",
-        role: "Junior Frontend Developer",
-        company: "Mahsulot.com",
-        href: "https://mahsulot.com/",
-        summary:
-          "Участие в e-commerce проектах. Разработка пользовательских интерфейсов и создание функциональных решений совместно с командой. Улучшение UX и влияния на конверсию.",
-      },
-    ],
     projects: [
-      {
-        title: "Darmon Servis",
-        href: "https://darmonservis.uz",
-        description:
-          "Лендинг для частной клиники. Официальная веб-страница с услугами, направлениями и информацией о компании. (Разработано IT Loyihalar)",
-        details: "Фокус: каталог услуг, быстрый контакт и адаптивность.",
-        image: "/projects/darmonservis.png",
-      },
-      {
-        title: "Makro",
-        href: "https://makromarket.uz/",
-        description:
-          "Официальная веб-страница сети Makro. Проект для презентации бренда и услуг. (В сотрудничестве с Abexlab)",
-        details: "Фокус: презентация бренда, контент и скорость загрузки.",
-        image: "/projects/makro.png",
-      },
-      {
-        title: "Hacknow.uz",
-        href: "https://hacknow.uz/",
-        description:
-          "Образовательная платформа по кибербезопасности и программированию. (Независимый проект)",
-        details: "Фокус: курсы, блог и сценарии регистрации.",
-        image: "/projects/hacknow.png",
-      },
-      {
-        title: "EVOS Tasting Platform",
-        href: "https://tasting.evos.uz",
-        description:
-          "Внутренняя платформа для supplier. Специальное веб-решение для управления продуктами и процессами. (Разработано IT Loyihalar)",
-        details: "Фокус: role-based доступ и панель управления.",
-        image: "/projects/ETS.png",
-      },
-      {
-        title: "Rano AI",
-        href: "https://rano.animall.uz/",
-        description:
-          "Система ИИ, обученная на юридических документах. Предназначена для консультаций и пояснений пользователям. (В сотрудничестве с U2S)",
-        details: "Фокус: поиск документов и AI-объяснения.",
-        image: "/projects/ranoAI.png",
-      },
-      {
-        title: "WM (NDA)",
-        href: "#",
-        description: "Коммерческий веб-проект. Детали скрыты из-за NDA.",
-        details: "Фокус: конфиденциальные бизнес-процессы и админ-панель.",
-        image: "/projects/NDA.webp",
-      },
-      {
-        title: "COST (NDA)",
-        href: "#",
-        description:
-          "Внутренняя система управления. Детали и бизнес-логика не раскрываются.",
-        details: "Фокус: внутренние workflow и управление данными.",
-        image: "/projects/NDA.webp",
-      },
       {
         title: "Animall.uz",
         href: "https://animall.uz",
         description:
-          "Онлайн-платформа для продажи животных и объявлений. (Независимый проект)",
+          "Проект, включающий сайт и мобильное приложение. Платформа для продажи животных и объявлений.",
         details: "Фокус: объявления, фильтры и безопасная связь.",
         image: "/projects/animall.png",
+        platforms: [
+          { type: "web", href: "https://animall.uz" },
+          { type: "android" },
+          { type: "ios" },
+        ],
       },
       {
-        title: "Qutqaruvchi.uz",
-        href: "https://qutqaruvchi.uz",
+        title: "Oilago.uz",
+        href: "https://oilago.uz/",
         description:
-          "Веб-платформа для вызова экстренной помощи. (Независимый проект)",
-        details: "Фокус: быстрый вызов, геолокация и уведомления.",
-        image: "/projects/qutqaruvchi.png",
+          "Проект, включающий сайт и мобильное приложение. Построен на Next.js, React Native, Expo, Node.js, Express и PostgreSQL.",
+        details: "Фокус: чат, конфиденциальность и удобный мобильный опыт.",
+        image: "/projects/oilago.png",
+        platforms: [
+          { type: "web", href: "https://oilago.uz/" },
+          { type: "android" },
+          { type: "ios" },
+        ],
       },
       {
-        title: "ComicCon Tashkent",
+        title: "Topshirdi",
+        href: "https://topshirdi.uz/app",
+        description:
+          "Веб-платформа и мобильное приложение для подготовки к экзамену на водительское удостоверение. Есть приложения для iOS и Android.",
+        details:
+          "Фокус: учебники, тесты, билеты, видеоуроки и отслеживание результатов.",
+        image: "/projects/topshirdi.png",
+        platforms: [
+          { type: "web", href: "https://topshirdi.uz/app" },
+          { type: "android" },
+          { type: "ios" },
+        ],
+      },
+      {
+        title: "CRM (NDA)",
         href: "#",
         description:
-          "Официальная промо-страница для ComicCon. (В сотрудничестве с Abexlab)",
-        details: "Фокус: event promo, расписание и регистрация.",
-        image: "/projects/comiccon.png",
-      },
-      {
-        title: "T-Cats",
-        href: "https://comica.tcats.uz",
-        description:
-          "Веб-платформа для онлайн-чтения и просмотра комиксов. (В сотрудничестве с Abexlab)",
-        details: "Фокус: медиапросмотр, каталог и UX.",
-        image: "/projects/tcats.png",
+          "Внутренняя CRM и система управления для учебного центра. Также есть мобильное приложение для студентов на Android и iOS. Детали не раскрываются из-за NDA.",
+        details:
+          "Фокус: внутреннее управление, учебные процессы и мобильное приложение для студентов.",
+        image: "/projects/crm.png",
+        platforms: [
+          { type: "web" },
+          { type: "android" },
+          { type: "ios" },
+        ],
       },
     ],
+    contact: {
+      title: "Обсудим ваш проект",
+      description:
+        "Заполните форму — мы скоро свяжемся с вами и проведём бесплатную консультацию по проекту.",
+      availability: "Открыты для новых проектов",
+      form: {
+        nameLabel: "Имя и фамилия",
+        namePlaceholder: "Имя Фамилия",
+        phoneLabel: "Номер телефона",
+        phonePlaceholder: "+998 90 123 45 67",
+        companyLabel: "Название компании (необязательно)",
+        companyPlaceholder: "Название вашей компании",
+        projectLabel: "Название проекта",
+        projectPlaceholder: "Название проекта или краткая идея",
+        submit: "Отправить",
+        submitting: "Отправка...",
+        successTitle: "Спасибо!",
+        successDescription: "Заявка принята. Мы скоро свяжемся с вами.",
+        errorTitle: "Произошла ошибка",
+        errorDescription:
+          "Пожалуйста, попробуйте снова позже или напишите нам в Telegram.",
+        validation: {
+          nameRequired: "Введите имя и фамилию",
+          nameMin: "Минимум 2 символа",
+          phoneRequired: "Введите номер телефона",
+          phoneInvalid: "Неверный формат номера телефона",
+          projectRequired: "Введите название проекта",
+        },
+      },
+    },
+    footer: {
+      rights: "Все права защищены.",
+    },
   },
   en: {
     meta: {
-      title: "Hojiakbar Murodillayev | MERN Stack & Mobile Developer",
+      title: "iDevs | Web & Mobile App Development Team",
       description:
-        "Hojiakbar Murodillayev — MERN Stack & Mobile Developer with 4+ years of experience. I build web and mobile apps in the JavaScript ecosystem.",
-      siteName: "Hojiakbar Murodillayev — MERN & Mobile Developer",
+        "iDevs is a full-stack development team — frontend, backend, mobile (Flutter), and VPS server deployment, all handled in-house. We turn your idea into a production-ready product.",
+      siteName: "iDevs — Development Team",
       ogDescription:
-        "I build web and mobile applications on the MERN stack. Real projects, freelance experience, and production-ready solutions.",
+        "Frontend, backend, mobile (Flutter/React Native), and VPS deployment — we handle it all ourselves. Real projects, reliable architecture, and production-ready solutions.",
       twitterDescription:
-        "Building web and mobile applications with MERN Stack and React Native.",
-      ogImageAlt: "Hojiakbar Murodillayev portfolio",
-      jobTitle: "MERN Stack & Mobile Developer",
+        "A full-stack team covering frontend, backend, mobile development, and server deployment.",
+      ogImageAlt: "iDevs team portfolio",
       knowsAbout: [
-        "MERN stack",
+        "Full Stack Development",
         "Web development",
         "Mobile apps",
         "React",
         "React Native",
+        "Flutter",
         "Next.js",
         "Node.js",
         "TypeScript",
@@ -733,24 +686,13 @@ const contentByLocale: Record<Locale, Content> = {
         "DevOps",
       ],
       keywords: [
-        "Hojiakbar",
-        "Xojiakbar",
-        "Xojakar",
+        "iDevs",
+        "iDevs team",
+        "iDevs developers",
+        "iDevs portfolio",
+        "development team",
+        "IT team Uzbekistan",
 
-        "Hojiakbar Murodillayev",
-        "Xojiakbar Murodillayev",
-        "Hojiakbar Murodullayev",
-        "Xojiakbar Murodullayev",
-        "Hojiakbar Murodillaev",
-        "Xojiakbar Murodillaev",
-
-        "Hojiakbar developer",
-        "Xojiakbar developer",
-
-        "Hojiakbar Murodillayev portfolio",
-        "Xojiakbar Murodillayev portfolio",
-
-        "MERN Stack Developer",
         "Full Stack Developer",
         "Web Developer",
         "Mobile Developer",
@@ -779,6 +721,9 @@ const contentByLocale: Record<Locale, Content> = {
         "UI/UX",
 
         "Web and mobile applications",
+        "hire a web developer",
+        "hire a mobile app developer",
+        "CRM development",
 
         "Docker",
         "Nginx",
@@ -787,36 +732,50 @@ const contentByLocale: Record<Locale, Content> = {
       ],
     },
     hero: {
-      name: "Hojiakbar Murodillayev",
-      role: "MERN Stack & Mobile Developer",
-      intro:
-        "I build modern web and mobile applications in the JavaScript ecosystem. I design frontend, backend, and mobile experiences as a single system.",
-      ctaCv: "Download CV",
+      name: "iDevs",
+      role: "Web & Mobile App Development Team",
+      badge: "iDevs — Development Team",
+      title: "We turn your idea into a",
+      titleHighlight: "real, working product",
+      description:
+        "iDevs is a full-stack development team covering frontend, backend, and mobile (Flutter) development. We go all the way — from idea to deployment on a VPS server — together with you.",
+      ctaPrimary: "Start a project",
+      ctaSecondary: "View projects",
+      stats: [
+        { value: "4+", label: "Delivered projects" },
+        { value: "5+", label: "Years of experience" },
+        { value: "4", label: "Platforms" },
+      ],
     },
     nav: {
       about: "About",
-      experience: "Experience",
       projects: "Projects",
+      contact: "Contact",
     },
     sections: {
       about: "About",
-      experience: "Experience",
       projects: "Projects",
+      contact: "Contact",
       stacks: "Technology stack",
     },
     labels: {
-      stack: "Stack",
+      stack: "Focus",
+      platformWeb: "View on Web",
+      platformAndroid: "View on Android",
+      platformIos: "View on iOS",
     },
     about: {
       paragraphs: [
-        "I'm a MERN stack developer with hands-on experience in real projects. I build web and mobile interfaces with React and React Native, and reliable backend solutions with Node.js.",
-        "Recently I've worked on corporate and startup projects: fast MVPs, scalable architectures, and solutions aligned with business goals. My focus is delivering fast, reliable, and user-friendly applications.",
+        "iDevs is a results-driven team building web and mobile applications with modern technologies. We work with Next.js, React, React Native, Flutter, Node.js, PostgreSQL, and many other technologies.",
+        "Each of us is a strong specialist in our own direction — frontend, backend, or mobile (Flutter). Together, we cover a project end-to-end: frontend, backend, the mobile app, and deployment on a VPS server.",
+        "We've shipped real projects — educational platforms, CRM systems, and business automation tools. On every project we pay close attention to clean code, scalable architecture, and a user-friendly interface.",
+        "Our goal is to turn your idea into a fast, reliable product that fits your business needs.",
       ],
     },
     stacks: [
       {
         title: "Frontend (Web)",
-        summary: "Modern UI/UX, performance, and usability.",
+        summary: "Modern, fast, and user-friendly interfaces.",
         tools: [
           { name: "JavaScript (ES6+)", icon: icon.javascript },
           { name: "TypeScript", icon: icon.typescript },
@@ -839,9 +798,10 @@ const contentByLocale: Record<Locale, Content> = {
       },
       {
         title: "Mobile",
-        summary: "Mobile experiences aligned with the web.",
+        summary: "One codebase for iOS and Android.",
         tools: [
           { name: "React Native", icon: icon.react },
+          { name: "Flutter", icon: icon.flutter },
           { name: "Expo", icon: icon.expo },
           { name: "Android & iOS build", icon: icon.android },
           { name: "API integration", icon: icon.swift },
@@ -850,7 +810,7 @@ const contentByLocale: Record<Locale, Content> = {
       },
       {
         title: "Tools & DevOps",
-        summary: "Deployment, monitoring, and automation.",
+        summary: "Deployment, monitoring, and automated workflows.",
         tools: [
           { name: "Docker", icon: icon.docker },
           { name: "Nginx", icon: icon.nginx },
@@ -861,146 +821,96 @@ const contentByLocale: Record<Locale, Content> = {
         ],
       },
     ],
-    experiences: [
-      {
-        period: "2025 — Present",
-        role: "Full Stack Developer",
-        company: "IT Loyihalar",
-        href: "https://it-loyihalar.uz/",
-        summary:
-          "Working on web and mobile applications on a unified MERN architecture. Building user interfaces with React and React Native and backend services with Node.js. Deploying projects to production and ensuring stability. Focused on digitizing business processes and optimizing technical decisions.",
-      },
-      {
-        period: "2021 — Present",
-        role: "MERN Stack (Freelance)",
-        company: "Independent / Freelance",
-        href: "https://t.me/murodillayev_hojiakbar",
-        summary:
-          "Over the last 4 years, I have delivered web and mobile apps as an independent developer. Building projects from scratch, evolving existing systems, and tailoring technical solutions to business needs. Experienced in direct client communication and requirement formalization.",
-      },
-      {
-        period: "2025 — Present",
-        role: "Frontend Developer (Part-time)",
-        company: "Abexlab",
-        href: "https://www.linkedin.com/company/abexlab/",
-        summary:
-          "Developing modern web interfaces and optimizing existing pages. Improving user experience and converting design into functional solutions. Focus on reusable UI components and fast delivery.",
-      },
-      {
-        period: "2024 — 2025",
-        role: "Frontend Developer",
-        company: "Etamin IT Solutions",
-        href: "https://etamin.digital/",
-        summary:
-          "Worked on enterprise-grade web platforms. Implemented CRUD and real-time features, improved stability and performance. Collaborated closely with design and backend teams.",
-      },
-      {
-        period: "2023 — 2025",
-        role: "Frontend Mentor",
-        company: "Webbrain IT Academy",
-        href: "https://t.me/webbrain_academy",
-        summary:
-          "Mentored students in frontend development. Provided hands-on training with real projects, code quality practices, and problem-solving. Helped students build portfolios and get job-ready.",
-      },
-      {
-        period: "2022 — 2023",
-        role: "Junior Frontend Developer",
-        company: "Mahsulot.com",
-        href: "https://mahsulot.com/",
-        summary:
-          "Participated in e-commerce web projects. Built user interfaces and delivered functional solutions with the team. Improved UX and conversion-focused flows.",
-      },
-    ],
     projects: [
-      {
-        title: "Darmon Servis",
-        href: "https://darmonservis.uz",
-        description:
-          "Landing page for a private clinic. Official website with services, directions, and company information. (Built by IT Loyihalar)",
-        details: "Focus: services catalog, quick contact, and mobile layout.",
-        image: "/projects/darmonservis.png",
-      },
-      {
-        title: "Makro",
-        href: "https://makromarket.uz/",
-        description:
-          "Official website for Makro market. A web project presenting brand and services. (In collaboration with Abexlab)",
-        details: "Focus: brand presentation, content management, performance.",
-        image: "/projects/makro.png",
-      },
-      {
-        title: "Hacknow.uz",
-        href: "https://hacknow.uz/",
-        description:
-          "Educational platform for cybersecurity and programming with hands-on learning. (Independent project)",
-        details: "Focus: courses, blog, and registration flows.",
-        image: "/projects/hacknow.png",
-      },
-      {
-        title: "EVOS Tasting Platform",
-        href: "https://tasting.evos.uz",
-        description:
-          "Internal platform for suppliers. A custom web solution for product and process management. (Built by IT Loyihalar)",
-        details: "Focus: role-based access and management dashboard.",
-        image: "/projects/ETS.png",
-      },
-      {
-        title: "Rano AI",
-        href: "https://rano.animall.uz/",
-        description:
-          "AI system trained on legal documents to provide guidance and explanations. (In collaboration with U2S)",
-        details: "Focus: document search and AI-based explanations.",
-        image: "/projects/ranoAI.png",
-      },
-      {
-        title: "WM (NDA)",
-        href: "#",
-        description:
-          "Commercial web project. Client and project details are confidential under NDA.",
-        details: "Focus: confidential business processes and admin panel.",
-        image: "/projects/NDA.webp",
-      },
-      {
-        title: "COST (NDA)",
-        href: "#",
-        description:
-          "Internal management system. Project details and business logic are confidential.",
-        details: "Focus: internal workflows and data management.",
-        image: "/projects/NDA.webp",
-      },
       {
         title: "Animall.uz",
         href: "https://animall.uz",
         description:
-          "Online platform for animal listings and sales. (Independent project)",
+          "A project that includes both a website and a mobile app. A platform for animal listings and sales.",
         details: "Focus: listings, filters, and safe communication.",
         image: "/projects/animall.png",
+        platforms: [
+          { type: "web", href: "https://animall.uz" },
+          { type: "android" },
+          { type: "ios" },
+        ],
       },
       {
-        title: "Qutqaruvchi.uz",
-        href: "https://qutqaruvchi.uz",
+        title: "Oilago.uz",
+        href: "https://oilago.uz/",
         description:
-          "Web platform for requesting emergency assistance. (Independent project)",
-        details: "Focus: quick request, location, and notifications.",
-        image: "/projects/qutqaruvchi.png",
+          "A project that includes both a website and a mobile app. Built with Next.js, React Native, Expo, Node.js, Express, and PostgreSQL.",
+        details: "Focus: chat, privacy, and a smooth mobile experience.",
+        image: "/projects/oilago.png",
+        platforms: [
+          { type: "web", href: "https://oilago.uz/" },
+          { type: "android" },
+          { type: "ios" },
+        ],
       },
       {
-        title: "ComicCon Tashkent",
+        title: "Topshirdi",
+        href: "https://topshirdi.uz/app",
+        description:
+          "A web platform and mobile app for preparing for the driving license exam. iOS and Android apps are available.",
+        details:
+          "Focus: lessons, tests, tickets, video classes, and progress tracking.",
+        image: "/projects/topshirdi.png",
+        platforms: [
+          { type: "web", href: "https://topshirdi.uz/app" },
+          { type: "android" },
+          { type: "ios" },
+        ],
+      },
+      {
+        title: "CRM (NDA)",
         href: "#",
         description:
-          "Official promo website for ComicCon event. (In collaboration with Abexlab)",
-        details: "Focus: event promo, schedule, and registration.",
-        image: "/projects/comiccon.png",
-      },
-      {
-        title: "T-Cats",
-        href: "https://comica.tcats.uz",
-        description:
-          "Web platform for reading and viewing comics online. (In collaboration with Abexlab)",
-        details: "Focus: media viewing, catalog, and UX.",
-        image: "/projects/tcats.png",
+          "An internal CRM and management system for an educational center. It also includes a mobile app for students on Android and iOS. Details are not disclosed due to NDA.",
+        details:
+          "Focus: internal management, learning workflows, and the student mobile app.",
+        image: "/projects/crm.png",
+        platforms: [
+          { type: "web" },
+          { type: "android" },
+          { type: "ios" },
+        ],
       },
     ],
+    contact: {
+      title: "Let's discuss your project",
+      description:
+        "Fill out the form and we'll get back to you shortly with a free consultation.",
+      availability: "Open for new projects",
+      form: {
+        nameLabel: "Full name",
+        namePlaceholder: "Full name",
+        phoneLabel: "Phone number",
+        phonePlaceholder: "+998 90 123 45 67",
+        companyLabel: "Company name (optional)",
+        companyPlaceholder: "Your company name",
+        projectLabel: "Project name",
+        projectPlaceholder: "Your project name or a short idea",
+        submit: "Send",
+        submitting: "Sending...",
+        successTitle: "Thank you!",
+        successDescription:
+          "Your request has been received. We'll contact you shortly.",
+        errorTitle: "Something went wrong",
+        errorDescription:
+          "Please try again shortly or message us on Telegram.",
+        validation: {
+          nameRequired: "Please enter your full name",
+          nameMin: "At least 2 characters",
+          phoneRequired: "Please enter your phone number",
+          phoneInvalid: "Invalid phone number format",
+          projectRequired: "Please enter your project name",
+        },
+      },
+    },
+    footer: {
+      rights: "All rights reserved.",
+    },
   },
 };
 
