@@ -2,7 +2,6 @@ import { Apple, ExternalLink, Globe } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { AnimatedStat } from "@/components/animated-stat";
 import { ContactForm } from "@/components/contact-form";
 import { SiteNavbar } from "@/components/site-navbar";
 import { Button } from "@/components/ui/button";
@@ -91,20 +90,6 @@ export default async function PortfolioPage({
                 <a href="#projects">{hero.ctaSecondary}</a>
               </Button>
             </div>
-
-            <dl className="mx-auto mt-16 grid max-w-xl grid-cols-3 gap-4 border-t border-border/60 pt-8">
-              {hero.stats.map((stat) => (
-                <div key={stat.label}>
-                  <dt className="sr-only">{stat.label}</dt>
-                  <dd className="text-2xl font-bold text-foreground sm:text-3xl">
-                    <AnimatedStat value={stat.value} />
-                  </dd>
-                  <div className="mt-1 text-xs text-muted-foreground sm:text-sm">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </dl>
           </div>
         </section>
 

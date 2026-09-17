@@ -69,7 +69,6 @@ export type Content = {
     description: string;
     ctaPrimary: string;
     ctaSecondary: string;
-    stats: { value: string; label: string }[];
   };
   nav: {
     about: string;
@@ -234,11 +233,6 @@ const contentByLocale: Record<Locale, Content> = {
         "iDevs — frontend, backend va mobil (Flutter) yo'nalishlarini qamrab oluvchi full-stack dasturchilar jamoasi. Loyihani ishlab chiqishdan tortib VPS serverga joylashgacha — butun yo'lni birga bosib o'tamiz.",
       ctaPrimary: "Loyihani boshlash",
       ctaSecondary: "Loyihalarni ko'rish",
-      stats: [
-        { value: "4+", label: "Yakunlangan loyiha" },
-        { value: "5+", label: "Yillik tajriba" },
-        { value: "4", label: "Platforma" },
-      ],
     },
     nav: {
       about: "Biz haqimizda",
@@ -486,11 +480,6 @@ const contentByLocale: Record<Locale, Content> = {
         "iDevs — full-stack команда, охватывающая frontend, backend и мобильную разработку (Flutter). Проходим весь путь — от идеи до развёртывания на VPS-сервере — вместе с вами.",
       ctaPrimary: "Начать проект",
       ctaSecondary: "Смотреть проекты",
-      stats: [
-        { value: "4+", label: "Завершённых проектов" },
-        { value: "5+", label: "Лет опыта" },
-        { value: "4", label: "Платформы" },
-      ],
     },
     nav: {
       about: "О нас",
@@ -737,11 +726,6 @@ const contentByLocale: Record<Locale, Content> = {
         "iDevs is a full-stack development team covering frontend, backend, and mobile (Flutter) development. We go all the way — from idea to deployment on a VPS server — together with you.",
       ctaPrimary: "Start a project",
       ctaSecondary: "View projects",
-      stats: [
-        { value: "4+", label: "Delivered projects" },
-        { value: "5+", label: "Years of experience" },
-        { value: "4", label: "Platforms" },
-      ],
     },
     nav: {
       about: "About",
