@@ -228,8 +228,8 @@ const contentByLocale: Record<Locale, Content> = {
     hero: {
       name: "iDevs",
       role: "Web va Mobil Ilovalar Ishlab Chiqish Jamoasi",
-      title: "G'oyangizni",
-      titleHighlight: "biznesga aylantiramiz",
+      title: "G'oyangizni ishlaydigan",
+      titleHighlight: "mahsulotga aylantiramiz",
       description:
         "iDevs — frontend, backend va mobil (Flutter) yo'nalishlarini qamrab oluvchi full-stack dasturchilar jamoasi. Loyihani ishlab chiqishdan tortib VPS serverga joylashgacha — butun yo'lni birga bosib o'tamiz.",
       ctaPrimary: "Loyihani boshlash",
