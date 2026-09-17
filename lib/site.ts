@@ -26,9 +26,19 @@ export function resolveSiteUrl(hostHeader?: string | null) {
   if (!rawHost) return new URL(`https://${PRIMARY_DOMAIN}`);
 
   const hostWithoutPort = rawHost.split(":")[0];
+  const isLocalHost =
+    hostWithoutPort === "localhost" || hostWithoutPort === "127.0.0.1";
 
-  if (hostWithoutPort === "localhost" || hostWithoutPort === "127.0.0.1") {
-    return buildLocalUrl(rawHost);
+  // Only trust a localhost/127.0.0.1 Host header outside production. In
+  // production this almost always means a reverse proxy (nginx) failed to
+  // forward the original Host header — falling back to a real public
+  // domain instead avoids leaking an unreachable internal URL into OG
+  // tags, canonical links, and JSON-LD.
+  if (isLocalHost) {
+    if (process.env.NODE_ENV !== "production") {
+      return buildLocalUrl(rawHost);
+    }
+    return new URL(`https://${PRIMARY_DOMAIN}`);
   }
 
   if (ALLOWED_DOMAINS.has(hostWithoutPort)) {
