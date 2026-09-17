@@ -4,7 +4,7 @@ set -euo pipefail
 APP_NAME="idevs"
 IMAGE_NAME="${APP_NAME}:latest"
 CONTAINER_NAME="${APP_NAME}"
-HOST_PORT=1701
+HOST_PORT=17001
 CONTAINER_PORT=3000
 ENV_FILE=".env.local"
 
