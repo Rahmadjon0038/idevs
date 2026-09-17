@@ -47,6 +47,7 @@ export type Project = {
   description: string;
   details: string;
   image: string;
+  imageFit?: "cover" | "contain";
   platforms: ProjectPlatform[];
 };
 
@@ -310,16 +311,139 @@ const contentByLocale: Record<Locale, Content> = {
     ],
     projects: [
       {
+        title: "HackNow",
+        href: "https://hacknow.uz/",
+        description:
+          "Innovatsion mahsulotlar, ta'lim platformasi va professional kiberxavfsizlik xizmatlari.",
+        details:
+          "Fokus: kiberxavfsizlik xizmatlari, ta'lim va innovatsion IT mahsulotlari.",
+        image: "/projects/hacknow.png",
+        platforms: [{ type: "web", href: "https://hacknow.uz/" }],
+      },
+      {
+        title: "ComicCon Tashkent",
+        href: "https://comiccon.uz/",
+        description:
+          "ComicCon tadbiri uchun maxsus tayyorlangan rasmiy promo veb-sahifa.",
+        details: "Fokus: tadbir haqida ma'lumot va promo taqdimot.",
+        image: "/projects/comiccon.png",
+        platforms: [{ type: "web", href: "https://comiccon.uz/" }],
+      },
+      {
+        title: "Evos Tasting Platform",
+        href: "https://tasting.evos.uz/",
+        description:
+          "Supplier uchun mo'ljallangan ichki platforma. Mahsulotlar va jarayonlarni boshqarish uchun maxsus web yechim.",
+        details:
+          "Fokus: yetkazib beruvchilarni ro'yxatdan o'tkazish va sinovdan o'tkazish jarayoni. IT Loyihalar kompaniyasi bilan hamkorlikda ishlab chiqilgan.",
+        image: "/projects/ETS.png",
+        platforms: [{ type: "web", href: "https://tasting.evos.uz/" }],
+      },
+      {
+        title: "Makro",
+        href: "https://makromarket.uz/",
+        description:
+          "Makro marketi uchun rasmiy veb-sahifa. Brend va xizmatlar haqida umumiy ma'lumot beruvchi web loyiha.",
+        details:
+          "Fokus: brend taqdimoti va mobil ilovalar. Abexlab kompaniyasi bilan hamkorlikda ishlab chiqilgan.",
+        image: "/projects/makro.png",
+        platforms: [
+          { type: "web", href: "https://makromarket.uz/" },
+          {
+            type: "ios",
+            href: "https://apps.apple.com/uz/app/makro-app/id6443717445",
+          },
+          {
+            type: "android",
+            href: "https://play.google.com/store/apps/details?id=com.makro.hive_dart",
+          },
+        ],
+      },
+      {
+        title: "Darmon Servis",
+        href: "https://darmonservis.uz/",
+        description: "Zamonaviy ko'p tarmoqli tibbiyot markazi.",
+        details:
+          "Fokus: klinika xizmatlari va shifoxona haqida ma'lumot. IT Loyihalar kompaniyasi bilan hamkorlikda ishlab chiqilgan.",
+        image: "/projects/darmonservis.png",
+        platforms: [{ type: "web", href: "https://darmonservis.uz/" }],
+      },
+      {
+        title: "Usuliya",
+        href: "https://usuliya.uz/",
+        description: "Arab tilini o'rganish uchun platforma.",
+        details:
+          "Fokus: darslar, mashqlar va mobil ilovadagi qulay o'quv tajribasi.",
+        image: "/projects/usuliya.png",
+        imageFit: "contain",
+        platforms: [
+          { type: "web", href: "https://usuliya.uz/" },
+          {
+            type: "android",
+            href: "https://play.google.com/store/apps/details?id=com.usuliya.app",
+          },
+          {
+            type: "ios",
+            href: "https://apps.apple.com/pk/app/usuliya/id6775377699",
+          },
+        ],
+      },
+      {
+        title: "Akbayr",
+        href: "https://akbayr.idevs.uz/",
+        description: "Onlayn sotuv platformasi.",
+        details:
+          "Fokus: mahsulotlar katalogi va onlayn buyurtma berish. Abexlab kompaniyasi bilan hamkorlikda ishlab chiqilgan.",
+        image: "/projects/akbayr.png",
+        imageFit: "contain",
+        platforms: [{ type: "web", href: "https://akbayr.idevs.uz/" }],
+      },
+      {
+        title: "DS Lab & DS Lab Kids",
+        href: "https://dslab.uz/",
+        description: "DS Lab laboratoriyasi uchun qilingan veb-sahifa.",
+        details:
+          "Fokus: laboratoriya xizmatlari haqida ma'lumot. IT Loyihalar kompaniyasi bilan hamkorlikda ishlab chiqilgan.",
+        image: "/projects/dslab.jpg",
+        imageFit: "contain",
+        platforms: [{ type: "web", href: "https://dslab.uz/" }],
+      },
+      {
+        title: "ProeCom",
+        href: "https://proecom.uz/",
+        description: "ProeCom jamoasi uchun qilingan veb-sahifa.",
+        details: "Fokus: jamoa va xizmatlar haqida umumiy ma'lumot.",
+        image: "/projects/proecom.png",
+        imageFit: "contain",
+        platforms: [{ type: "web", href: "https://proecom.uz/" }],
+      },
+      {
+        title: "«O'zinvestloyiha»",
+        href: "https://uzinvestproject.uz/",
+        description: "«O'zinvestloyiha» uchun tayyorlangan veb-sahifa.",
+        details:
+          "Fokus: kompaniya va xizmatlar haqida ma'lumot. Abexlab kompaniyasi bilan hamkorlikda ishlab chiqilgan.",
+        image: "/projects/uzinvestloyiha.png",
+        imageFit: "contain",
+        platforms: [{ type: "web", href: "https://uzinvestproject.uz/" }],
+      },
+      {
         title: "Animall.uz",
         href: "https://animall.uz",
         description:
-          "Hayvonlar savdosi va e'lonlari uchun mo'ljallangan sayt va mobil ilovadan iborat platforma.",
+          "Hayvonlar savdosi va e'lonlari uchun mo'ljallangan onlayn platforma.",
         details: "Fokus: e'lonlar, filtrlash va xavfsiz aloqa.",
         image: "/projects/animall.png",
         platforms: [
           { type: "web", href: "https://animall.uz" },
-          { type: "android" },
-          { type: "ios" },
+          {
+            type: "android",
+            href: "https://play.google.com/store/apps/details?id=uz.animall.app&pcampaignid=web_share",
+          },
+          {
+            type: "ios",
+            href: "https://apps.apple.com/us/app/animall-uz/id6755634058",
+          },
         ],
       },
       {
@@ -329,6 +453,7 @@ const contentByLocale: Record<Locale, Content> = {
           "Sayt va mobil ilovadan iborat loyiha. Next.js, React Native, Expo, Node.js, Express va PostgreSQL asosida qurilgan.",
         details: "Fokus: chat, maxfiylik va qulay mobil tajriba.",
         image: "/projects/oilago.png",
+        imageFit: "contain",
         platforms: [
           { type: "web", href: "https://oilago.uz/" },
           { type: "android" },
@@ -337,26 +462,41 @@ const contentByLocale: Record<Locale, Content> = {
       },
       {
         title: "Topshirdi",
-        href: "https://topshirdi.uz/app",
+        href: "https://topshirdi.uz/",
         description:
           "Haydovchilik guvohnomasi imtihoniga tayyorlanish uchun yaratilgan web platforma va mobil ilova. iOS va Android ilovalari mavjud.",
         details:
           "Fokus: darsliklar, testlar, biletlar, video darslar va natijalarni kuzatish.",
         image: "/projects/topshirdi.png",
         platforms: [
-          { type: "web", href: "https://topshirdi.uz/app" },
-          { type: "android" },
-          { type: "ios" },
+          { type: "web", href: "https://topshirdi.uz/" },
+          {
+            type: "android",
+            href: "https://play.google.com/store/apps/details?id=uz.roadtest.app&hl=en",
+          },
+          {
+            type: "ios",
+            href: "https://apps.apple.com/us/app/topshirdi/id6781198005",
+          },
         ],
       },
       {
-        title: "CRM (NDA)",
+        title: "SmartTest",
+        href: "https://smarttest.idevs.uz/",
+        description:
+          "O'qituvchilar va o'quvchilar uchun onlayn testlar va imtihonlar tashkil qilish platformasi.",
+        details:
+          "Fokus: Telegram orqali kirish, testlar va natijalarni boshqarish.",
+        image: "/projects/smarttest.png",
+        platforms: [{ type: "web", href: "https://smarttest.idevs.uz/" }],
+      },
+      {
+        title: "NDA Loyihalar (10+)",
         href: "#",
         description:
-          "O'quv markaz uchun ichki CRM va boshqaruv tizimi. Talabalar uchun Android va iOS mobil ilovasi ham mavjud. Tafsilotlar NDA sababli ochiqlanmaydi.",
-        details:
-          "Fokus: ichki boshqaruv, o'quv jarayonlari va talabalar mobil ilovasi.",
-        image: "/projects/crm.png",
+          "Mijozlar bilan tuzilgan maxfiylik shartnomalari (NDA) asosida ishlab chiqilgan 10 dan ortiq loyiha.",
+        details: "Bu loyihalar oshkor qilinmaydigan loyihalar.",
+        image: "/projects/NDA.webp",
         platforms: [
           { type: "web" },
           { type: "android" },
@@ -557,16 +697,139 @@ const contentByLocale: Record<Locale, Content> = {
     ],
     projects: [
       {
+        title: "HackNow",
+        href: "https://hacknow.uz/",
+        description:
+          "Инновационные продукты, образовательная платформа и профессиональные услуги в области кибербезопасности.",
+        details:
+          "Фокус: услуги кибербезопасности, обучение и инновационные IT-продукты.",
+        image: "/projects/hacknow.png",
+        platforms: [{ type: "web", href: "https://hacknow.uz/" }],
+      },
+      {
+        title: "ComicCon Tashkent",
+        href: "https://comiccon.uz/",
+        description:
+          "Официальная промо-страница, специально созданная для мероприятия ComicCon.",
+        details: "Фокус: информация о мероприятии и промо-презентация.",
+        image: "/projects/comiccon.png",
+        platforms: [{ type: "web", href: "https://comiccon.uz/" }],
+      },
+      {
+        title: "Evos Tasting Platform",
+        href: "https://tasting.evos.uz/",
+        description:
+          "Внутренняя платформа для поставщиков. Специальное веб-решение для управления продуктами и процессами.",
+        details:
+          "Фокус: регистрация и тестирование поставщиков. Разработано в сотрудничестве с компанией IT Loyihalar.",
+        image: "/projects/ETS.png",
+        platforms: [{ type: "web", href: "https://tasting.evos.uz/" }],
+      },
+      {
+        title: "Makro",
+        href: "https://makromarket.uz/",
+        description:
+          "Официальная веб-страница сети Makro. Веб-проект с общей информацией о бренде и услугах.",
+        details:
+          "Фокус: презентация бренда и мобильные приложения. Разработано в сотрудничестве с компанией Abexlab.",
+        image: "/projects/makro.png",
+        platforms: [
+          { type: "web", href: "https://makromarket.uz/" },
+          {
+            type: "ios",
+            href: "https://apps.apple.com/uz/app/makro-app/id6443717445",
+          },
+          {
+            type: "android",
+            href: "https://play.google.com/store/apps/details?id=com.makro.hive_dart",
+          },
+        ],
+      },
+      {
+        title: "Darmon Servis",
+        href: "https://darmonservis.uz/",
+        description: "Современный многопрофильный медицинский центр.",
+        details:
+          "Фокус: услуги клиники и информация о медицинском центре. Разработано в сотрудничестве с компанией IT Loyihalar.",
+        image: "/projects/darmonservis.png",
+        platforms: [{ type: "web", href: "https://darmonservis.uz/" }],
+      },
+      {
+        title: "Usuliya",
+        href: "https://usuliya.uz/",
+        description: "Платформа для изучения арабского языка.",
+        details:
+          "Фокус: уроки, упражнения и удобный учебный опыт в мобильном приложении.",
+        image: "/projects/usuliya.png",
+        imageFit: "contain",
+        platforms: [
+          { type: "web", href: "https://usuliya.uz/" },
+          {
+            type: "android",
+            href: "https://play.google.com/store/apps/details?id=com.usuliya.app",
+          },
+          {
+            type: "ios",
+            href: "https://apps.apple.com/pk/app/usuliya/id6775377699",
+          },
+        ],
+      },
+      {
+        title: "Akbayr",
+        href: "https://akbayr.idevs.uz/",
+        description: "Платформа онлайн-продаж.",
+        details:
+          "Фокус: каталог товаров и оформление заказов онлайн. Разработано в сотрудничестве с компанией Abexlab.",
+        image: "/projects/akbayr.png",
+        imageFit: "contain",
+        platforms: [{ type: "web", href: "https://akbayr.idevs.uz/" }],
+      },
+      {
+        title: "DS Lab & DS Lab Kids",
+        href: "https://dslab.uz/",
+        description: "Веб-страница для лаборатории DS Lab.",
+        details:
+          "Фокус: информация об услугах лаборатории. Разработано в сотрудничестве с компанией IT Loyihalar.",
+        image: "/projects/dslab.jpg",
+        imageFit: "contain",
+        platforms: [{ type: "web", href: "https://dslab.uz/" }],
+      },
+      {
+        title: "ProeCom",
+        href: "https://proecom.uz/",
+        description: "Веб-страница для команды ProeCom.",
+        details: "Фокус: общая информация о команде и услугах.",
+        image: "/projects/proecom.png",
+        imageFit: "contain",
+        platforms: [{ type: "web", href: "https://proecom.uz/" }],
+      },
+      {
+        title: "«O'zinvestloyiha»",
+        href: "https://uzinvestproject.uz/",
+        description: "Веб-страница, подготовленная для «O'zinvestloyiha».",
+        details:
+          "Фокус: информация о компании и услугах. Разработано в сотрудничестве с компанией Abexlab.",
+        image: "/projects/uzinvestloyiha.png",
+        imageFit: "contain",
+        platforms: [{ type: "web", href: "https://uzinvestproject.uz/" }],
+      },
+      {
         title: "Animall.uz",
         href: "https://animall.uz",
         description:
-          "Проект, включающий сайт и мобильное приложение. Платформа для продажи животных и объявлений.",
+          "Онлайн-платформа для продажи животных и объявлений.",
         details: "Фокус: объявления, фильтры и безопасная связь.",
         image: "/projects/animall.png",
         platforms: [
           { type: "web", href: "https://animall.uz" },
-          { type: "android" },
-          { type: "ios" },
+          {
+            type: "android",
+            href: "https://play.google.com/store/apps/details?id=uz.animall.app&pcampaignid=web_share",
+          },
+          {
+            type: "ios",
+            href: "https://apps.apple.com/us/app/animall-uz/id6755634058",
+          },
         ],
       },
       {
@@ -576,6 +839,7 @@ const contentByLocale: Record<Locale, Content> = {
           "Проект, включающий сайт и мобильное приложение. Построен на Next.js, React Native, Expo, Node.js, Express и PostgreSQL.",
         details: "Фокус: чат, конфиденциальность и удобный мобильный опыт.",
         image: "/projects/oilago.png",
+        imageFit: "contain",
         platforms: [
           { type: "web", href: "https://oilago.uz/" },
           { type: "android" },
@@ -584,26 +848,41 @@ const contentByLocale: Record<Locale, Content> = {
       },
       {
         title: "Topshirdi",
-        href: "https://topshirdi.uz/app",
+        href: "https://topshirdi.uz/",
         description:
           "Веб-платформа и мобильное приложение для подготовки к экзамену на водительское удостоверение. Есть приложения для iOS и Android.",
         details:
           "Фокус: учебники, тесты, билеты, видеоуроки и отслеживание результатов.",
         image: "/projects/topshirdi.png",
         platforms: [
-          { type: "web", href: "https://topshirdi.uz/app" },
-          { type: "android" },
-          { type: "ios" },
+          { type: "web", href: "https://topshirdi.uz/" },
+          {
+            type: "android",
+            href: "https://play.google.com/store/apps/details?id=uz.roadtest.app&hl=en",
+          },
+          {
+            type: "ios",
+            href: "https://apps.apple.com/us/app/topshirdi/id6781198005",
+          },
         ],
       },
       {
-        title: "CRM (NDA)",
+        title: "SmartTest",
+        href: "https://smarttest.idevs.uz/",
+        description:
+          "Онлайн-платформа для организации тестов и экзаменов для преподавателей и учеников.",
+        details:
+          "Фокус: вход через Telegram, управление тестами и результатами.",
+        image: "/projects/smarttest.png",
+        platforms: [{ type: "web", href: "https://smarttest.idevs.uz/" }],
+      },
+      {
+        title: "NDA Проекты (10+)",
         href: "#",
         description:
-          "Внутренняя CRM и система управления для учебного центра. Также есть мобильное приложение для студентов на Android и iOS. Детали не раскрываются из-за NDA.",
-        details:
-          "Фокус: внутреннее управление, учебные процессы и мобильное приложение для студентов.",
-        image: "/projects/crm.png",
+          "Более 10 проектов, разработанных в рамках соглашений о неразглашении (NDA) с клиентами.",
+        details: "Это проекты, детали которых не подлежат разглашению.",
+        image: "/projects/NDA.webp",
         platforms: [
           { type: "web" },
           { type: "android" },
@@ -803,16 +1082,138 @@ const contentByLocale: Record<Locale, Content> = {
     ],
     projects: [
       {
+        title: "HackNow",
+        href: "https://hacknow.uz/",
+        description:
+          "Innovative products, an educational platform, and professional cybersecurity services.",
+        details:
+          "Focus: cybersecurity services, education, and innovative IT products.",
+        image: "/projects/hacknow.png",
+        platforms: [{ type: "web", href: "https://hacknow.uz/" }],
+      },
+      {
+        title: "ComicCon Tashkent",
+        href: "https://comiccon.uz/",
+        description:
+          "An official promo web page created specifically for the ComicCon event.",
+        details: "Focus: event information and a promotional presentation.",
+        image: "/projects/comiccon.png",
+        platforms: [{ type: "web", href: "https://comiccon.uz/" }],
+      },
+      {
+        title: "Evos Tasting Platform",
+        href: "https://tasting.evos.uz/",
+        description:
+          "An internal platform for suppliers. A dedicated web solution for managing products and processes.",
+        details:
+          "Focus: supplier registration and testing workflow. Built in partnership with IT Loyihalar.",
+        image: "/projects/ETS.png",
+        platforms: [{ type: "web", href: "https://tasting.evos.uz/" }],
+      },
+      {
+        title: "Makro",
+        href: "https://makromarket.uz/",
+        description:
+          "The official web page for the Makro market chain. A web project presenting the brand and its services.",
+        details:
+          "Focus: brand presentation and mobile apps. Built in partnership with Abexlab.",
+        image: "/projects/makro.png",
+        platforms: [
+          { type: "web", href: "https://makromarket.uz/" },
+          {
+            type: "ios",
+            href: "https://apps.apple.com/uz/app/makro-app/id6443717445",
+          },
+          {
+            type: "android",
+            href: "https://play.google.com/store/apps/details?id=com.makro.hive_dart",
+          },
+        ],
+      },
+      {
+        title: "Darmon Servis",
+        href: "https://darmonservis.uz/",
+        description: "A modern multidisciplinary medical center.",
+        details:
+          "Focus: clinic services and medical center information. Built in partnership with IT Loyihalar.",
+        image: "/projects/darmonservis.png",
+        platforms: [{ type: "web", href: "https://darmonservis.uz/" }],
+      },
+      {
+        title: "Usuliya",
+        href: "https://usuliya.uz/",
+        description: "A platform for learning Arabic.",
+        details: "Focus: lessons, exercises, and a smooth mobile app experience.",
+        image: "/projects/usuliya.png",
+        imageFit: "contain",
+        platforms: [
+          { type: "web", href: "https://usuliya.uz/" },
+          {
+            type: "android",
+            href: "https://play.google.com/store/apps/details?id=com.usuliya.app",
+          },
+          {
+            type: "ios",
+            href: "https://apps.apple.com/pk/app/usuliya/id6775377699",
+          },
+        ],
+      },
+      {
+        title: "Akbayr",
+        href: "https://akbayr.idevs.uz/",
+        description: "An online sales platform.",
+        details:
+          "Focus: product catalog and online ordering. Built in partnership with Abexlab.",
+        image: "/projects/akbayr.png",
+        imageFit: "contain",
+        platforms: [{ type: "web", href: "https://akbayr.idevs.uz/" }],
+      },
+      {
+        title: "DS Lab & DS Lab Kids",
+        href: "https://dslab.uz/",
+        description: "A web page built for the DS Lab laboratory.",
+        details:
+          "Focus: information about lab services. Built in partnership with IT Loyihalar.",
+        image: "/projects/dslab.jpg",
+        imageFit: "contain",
+        platforms: [{ type: "web", href: "https://dslab.uz/" }],
+      },
+      {
+        title: "ProeCom",
+        href: "https://proecom.uz/",
+        description: "A web page built for the ProeCom team.",
+        details: "Focus: general information about the team and services.",
+        image: "/projects/proecom.png",
+        imageFit: "contain",
+        platforms: [{ type: "web", href: "https://proecom.uz/" }],
+      },
+      {
+        title: "«O'zinvestloyiha»",
+        href: "https://uzinvestproject.uz/",
+        description: "A web page built for «O'zinvestloyiha».",
+        details:
+          "Focus: information about the company and its services. Built in partnership with Abexlab.",
+        image: "/projects/uzinvestloyiha.png",
+        imageFit: "contain",
+        platforms: [{ type: "web", href: "https://uzinvestproject.uz/" }],
+      },
+      {
         title: "Animall.uz",
         href: "https://animall.uz",
         description:
-          "A project that includes both a website and a mobile app. A platform for animal listings and sales.",
+          "An online platform for animal listings and sales.",
         details: "Focus: listings, filters, and safe communication.",
         image: "/projects/animall.png",
         platforms: [
           { type: "web", href: "https://animall.uz" },
-          { type: "android" },
-          { type: "ios" },
+          {
+            type: "android",
+            href: "https://play.google.com/store/apps/details?id=uz.animall.app&pcampaignid=web_share",
+          },
+          {
+            type: "ios",
+            href: "https://apps.apple.com/us/app/animall-uz/id6755634058",
+          },
         ],
       },
       {
@@ -822,6 +1223,7 @@ const contentByLocale: Record<Locale, Content> = {
           "A project that includes both a website and a mobile app. Built with Next.js, React Native, Expo, Node.js, Express, and PostgreSQL.",
         details: "Focus: chat, privacy, and a smooth mobile experience.",
         image: "/projects/oilago.png",
+        imageFit: "contain",
         platforms: [
           { type: "web", href: "https://oilago.uz/" },
           { type: "android" },
@@ -830,26 +1232,41 @@ const contentByLocale: Record<Locale, Content> = {
       },
       {
         title: "Topshirdi",
-        href: "https://topshirdi.uz/app",
+        href: "https://topshirdi.uz/",
         description:
           "A web platform and mobile app for preparing for the driving license exam. iOS and Android apps are available.",
         details:
           "Focus: lessons, tests, tickets, video classes, and progress tracking.",
         image: "/projects/topshirdi.png",
         platforms: [
-          { type: "web", href: "https://topshirdi.uz/app" },
-          { type: "android" },
-          { type: "ios" },
+          { type: "web", href: "https://topshirdi.uz/" },
+          {
+            type: "android",
+            href: "https://play.google.com/store/apps/details?id=uz.roadtest.app&hl=en",
+          },
+          {
+            type: "ios",
+            href: "https://apps.apple.com/us/app/topshirdi/id6781198005",
+          },
         ],
       },
       {
-        title: "CRM (NDA)",
+        title: "SmartTest",
+        href: "https://smarttest.idevs.uz/",
+        description:
+          "An online platform for teachers and students to organize tests and exams.",
+        details:
+          "Focus: Telegram login, and managing tests and results.",
+        image: "/projects/smarttest.png",
+        platforms: [{ type: "web", href: "https://smarttest.idevs.uz/" }],
+      },
+      {
+        title: "NDA Projects (10+)",
         href: "#",
         description:
-          "An internal CRM and management system for an educational center. It also includes a mobile app for students on Android and iOS. Details are not disclosed due to NDA.",
-        details:
-          "Focus: internal management, learning workflows, and the student mobile app.",
-        image: "/projects/crm.png",
+          "More than 10 projects built under non-disclosure agreements (NDA) with clients.",
+        details: "These are projects whose details cannot be disclosed.",
+        image: "/projects/NDA.webp",
         platforms: [
           { type: "web" },
           { type: "android" },

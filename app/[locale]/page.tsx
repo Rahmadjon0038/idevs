@@ -197,14 +197,22 @@ export default async function PortfolioPage({
                 >
                   <ProjectLink
                     href={webHref}
-                    className="relative h-48 w-full overflow-hidden bg-secondary/40"
+                    className={
+                      project.imageFit === "contain"
+                        ? "relative h-48 w-full overflow-hidden bg-white"
+                        : "relative h-48 w-full overflow-hidden bg-secondary/40"
+                    }
                   >
                     <Image
                       src={project.image}
                       alt={project.title}
                       fill
                       sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className={
+                        project.imageFit === "contain"
+                          ? "object-contain p-8 transition-transform duration-500 group-hover:scale-105"
+                          : "object-cover transition-transform duration-500 group-hover:scale-105"
+                      }
                     />
                   </ProjectLink>
                   <div className="flex flex-1 flex-col p-6">
