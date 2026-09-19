@@ -180,49 +180,16 @@ const contentByLocale: Record<Locale, Content> = {
       ],
       keywords: [
         "iDevs",
-        "iDevs jamoasi",
-        "iDevs dasturchilar jamoasi",
-        "iDevs portfolio",
         "dasturchilar jamoasi",
-        "IT jamoa O'zbekiston",
-
-        "full stack dasturchi",
-        "veb dasturchi",
-        "mobil dasturchi",
-        "freelance dasturchi",
-
-        "O'zbekiston dasturchi",
-        "Toshkent dasturchi",
-
-        "frontend dasturchi",
-        "backend dasturchi",
-
-        "React dasturchi",
-        "Next.js dasturchi",
-        "React Native dasturchi",
-        "Flutter dasturchi",
-        "Node.js dasturchi",
-
-        "TypeScript dasturchi",
-        "JavaScript dasturchi",
-
-        "REST API",
-        "API integratsiya",
-
-        "MongoDB",
-        "PostgreSQL",
-
-        "UI/UX",
-
-        "web va mobil ilovalar",
-        "sayt buyurtma qilish",
-        "mobil ilova buyurtma qilish",
+        "O‘zbekistonda dasturiy ta’minot ishlab chiqish",
+        "web sayt yaratish",
+        "mobil ilovalar ishlab chiqish",
         "CRM tizim yaratish",
-
-        "Docker",
-        "Nginx",
-        "PM2",
-        "VPS deploy",
+        "frontend va backend dasturlash",
+        "Flutter",
+        "React",
+        "Next.js",
+        "Node.js",
       ],
     },
     hero: {
@@ -567,48 +534,16 @@ const contentByLocale: Record<Locale, Content> = {
       ],
       keywords: [
         "iDevs",
-        "команда iDevs",
-        "iDevs разработчики",
-        "iDevs портфолио",
         "команда разработчиков",
-        "IT команда Узбекистан",
-
-        "Full Stack разработчик",
-        "Веб разработчик",
-        "Мобильный разработчик",
-        "Фриланс разработчик",
-
-        "Узбекистан разработчик",
-        "Ташкент разработчик",
-
-        "Frontend разработчик",
-        "Backend разработчик",
-
-        "React разработчик",
-        "Next.js разработчик",
-        "React Native разработчик",
-        "Node.js разработчик",
-
-        "TypeScript разработчик",
-        "JavaScript разработчик",
-
-        "REST API",
-        "API интеграция",
-
-        "MongoDB",
-        "PostgreSQL",
-
-        "UI/UX",
-
-        "веб и мобильные приложения",
-        "заказать сайт",
-        "заказать мобильное приложение",
+        "разработка программного обеспечения в Узбекистане",
+        "создание сайтов",
+        "разработка мобильных приложений",
         "разработка CRM",
-
-        "Docker",
-        "Nginx",
-        "PM2",
-        "VPS deploy",
+        "frontend и backend разработка",
+        "Flutter",
+        "React",
+        "Next.js",
+        "Node.js",
       ],
     },
     hero: {
@@ -952,48 +887,16 @@ const contentByLocale: Record<Locale, Content> = {
       ],
       keywords: [
         "iDevs",
-        "iDevs team",
-        "iDevs developers",
-        "iDevs portfolio",
-        "development team",
-        "IT team Uzbekistan",
-
-        "Full Stack Developer",
-        "Web Developer",
-        "Mobile Developer",
-        "Freelance Developer",
-
-        "Uzbekistan Developer",
-        "Tashkent Developer",
-
-        "Frontend Developer",
-        "Backend Developer",
-
-        "React Developer",
-        "Next.js Developer",
-        "React Native Developer",
-        "Node.js Developer",
-
-        "TypeScript Developer",
-        "JavaScript Developer",
-
-        "REST API",
-        "API Integration",
-
-        "MongoDB",
-        "PostgreSQL",
-
-        "UI/UX",
-
-        "Web and mobile applications",
-        "hire a web developer",
-        "hire a mobile app developer",
+        "software development team",
+        "software development Uzbekistan",
+        "web development",
+        "mobile app development",
         "CRM development",
-
-        "Docker",
-        "Nginx",
-        "PM2",
-        "VPS deployment",
+        "frontend and backend development",
+        "Flutter",
+        "React",
+        "Next.js",
+        "Node.js",
       ],
     },
     hero: {

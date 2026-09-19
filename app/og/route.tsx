@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { SITE_DOMAIN } from "@/lib/site";
 import { defaultLocale, getContent, isLocale } from "@/lib/i18n";
 
 export const runtime = "edge";
@@ -84,7 +85,7 @@ export function GET(request: Request) {
         }}
       >
         <div>{content.meta.siteName}</div>
-        <div>murodillayev.uz · idevs.uz</div>
+        <div>{SITE_DOMAIN}</div>
       </div>
     </div>,
     {

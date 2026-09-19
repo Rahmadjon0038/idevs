@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getSiteUrl, siteDomains } from "@/lib/site";
+import { getLanguageAlternates, getSiteUrl } from "@/lib/site";
 import {
   defaultLocale,
   getContent,
@@ -28,7 +28,7 @@ export async function generateMetadata({
 
   const locale = resolvedParams.locale ?? defaultLocale;
   const content = getContent(locale);
-  const siteUrl = await getSiteUrl();
+  const siteUrl = getSiteUrl();
   const pagePath = `/${locale}`;
 
   return {
@@ -41,17 +41,15 @@ export async function generateMetadata({
     keywords: content.meta.keywords,
     authors: [{ name: content.hero.name }],
     creator: content.hero.name,
+    publisher: "iDevs",
     alternates: {
       canonical: pagePath,
-      languages: {
-        uz: "/uz",
-        ru: "/ru",
-        en: "/en",
-      },
+      languages: getLanguageAlternates(),
     },
     openGraph: {
       type: "website",
       locale: localeOgMap[locale],
+      alternateLocale: locales.filter((value) => value !== locale).map((value) => localeOgMap[value]),
       url: pagePath,
       siteName: content.meta.siteName,
       title: content.meta.title,
@@ -111,7 +109,7 @@ export default async function LocaleLayout({
 
   const locale = resolvedParams.locale ?? defaultLocale;
   const content = getContent(locale);
-  const siteUrl = await getSiteUrl();
+  const siteUrl = getSiteUrl();
   const siteOrigin = new URL("/", siteUrl).toString();
   const pagePath = `/${locale}`;
   const pageUrl = new URL(pagePath, siteUrl).toString();
@@ -129,12 +127,6 @@ export default async function LocaleLayout({
         url: siteOrigin,
         description: content.meta.description,
         logo: new URL("/android-chrome-512x512.png", siteUrl).toString(),
-        sameAs: [
-          `https://${siteDomains.primary}`,
-          `https://${siteDomains.secondary}`,
-          "https://github.com/Rahmadjon0038",
-          "https://t.me/Rahmadjonn",
-        ],
         knowsAbout: content.meta.knowsAbout,
       },
       {
